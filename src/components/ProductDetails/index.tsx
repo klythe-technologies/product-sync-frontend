@@ -6,33 +6,54 @@ import {
   TextField,
   Button
 } from '@mui/material';
-// import MuiBox, { BoxProps } from '@mui/material/Box';
-// import { styled } from '@mui/material/styles';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
-//  const Box = styled(MuiBox)<BoxProps>(({ theme }) => ({
-//     [theme.breakpoints.up('xs')]: { minWidth: '170px', fontSize: '10px' }
-//   }))
+const validationSchema = yup.object({
+  productLink: yup
+    .string('Enter a value')
+    .required('Link is required'),
+  title: yup
+    .string('Enter a value')
+    .required('Title is required'),
+  description: yup
+    .string('Enter a value')
+    .required('Description is required'),
+});
 
-const ProductDetails = () => {
-  const [value, setValue] = useState('');
-  const [title, setTitle] = useState('');
-  const [brand, setBrand] = useState('');
-  const [description, setDescription] = useState('');
+const ProductDetails = (props: any) => {
+  // const [value, setValue] = useState('');
+  // const [title, setTitle] = useState('');
+  // const [brand, setBrand] = useState('');
+  // const [description, setDescription] = useState('');
 
   const VALUE_LIMIT = 2000;
   const TITLE_LIMIT = 150;
   const BRAND_LIMIT = 70;
   const DESCRIPTION_LIMIT = 5000;
 
-  const handleSubmit = () => {
-    console.log("product-details", value, title, brand, description)
-  }
+  // const handleSubmit = () => {
+  //   console.log("product-details", value, title, brand, description)
+  // }
+
+  const formik = useFormik({
+    initialValues: {
+      productLink: '',
+      title: '',
+      description: '',
+      brand: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   return (
     <>
       <Typography
         sx={{ fontSize: '22px' }}>
-        Add products one by one
+        {props.title}
       </Typography>
       <Divider />
       <div className='main_div' style={{ display: 'flex', gap: '25px', marginTop: '20px' }}>
@@ -55,9 +76,11 @@ const ProductDetails = () => {
               <TextField id="outlined-basic"
                 label="Product page on your online store"
                 variant="outlined"
-                value={value}
-                onChange={e => setValue(e.target.value)}
-                required
+                name="productLink"
+                value={formik.values.productLink}
+                onChange={formik.handleChange}
+                error={formik.touched.productLink && Boolean(formik.errors.productLink)}
+                helperText={formik.touched.productLink && formik.errors.productLink}
                 inputProps={{
                   maxlength: VALUE_LIMIT
                 }}
@@ -69,7 +92,7 @@ const ProductDetails = () => {
                 </Typography>
                 <Typography
                   sx={{ fontSize: '12px' }}>
-                  {`${value.length}/${VALUE_LIMIT}`}
+                  {`${formik.values.productLink.length}/${VALUE_LIMIT}`}
                 </Typography>
               </div>
             </FormControl>
@@ -78,8 +101,11 @@ const ProductDetails = () => {
               <TextField id="outlined-basic"
                 label="Title*"
                 variant="outlined"
-                value={title}
-                onChange={e => setTitle(e.target.value)}
+                name="title"
+                value={formik.values.title}
+                onChange={formik.handleChange}
+                error={formik.touched.title && Boolean(formik.errors.title)}
+                helperText={formik.touched.title && formik.errors.title}
                 inputProps={{
                   maxlength: TITLE_LIMIT
                 }}
@@ -87,7 +113,7 @@ const ProductDetails = () => {
               <div>
                 <Typography
                   sx={{ fontSize: '12px', textAlign: 'right' }}>
-                  {`${title.length}/${TITLE_LIMIT}`}
+                  {`${formik.values.title.length}/${TITLE_LIMIT}`}
                 </Typography>
               </div>
             </FormControl>
@@ -96,14 +122,15 @@ const ProductDetails = () => {
               <TextField id="outlined-basic"
                 label="Brand"
                 variant="outlined"
-                value={brand}
-                onChange={e => setBrand(e.target.value)}
+                name="brand"
+                value={formik.values.brand}
+                onChange={formik.handleChange}
                 inputProps={{
                   maxlength: BRAND_LIMIT
                 }}
               />
               <div>
-                <Typography sx={{ fontSize: '12px', textAlign: 'right' }}>{`${brand.length}/${BRAND_LIMIT}`}</Typography>
+                <Typography sx={{ fontSize: '12px', textAlign: 'right' }}>{`${formik.values.brand.length}/${BRAND_LIMIT}`}</Typography>
               </div>
             </FormControl>
             <FormControl
@@ -111,8 +138,11 @@ const ProductDetails = () => {
               <TextField id="outlined-basic"
                 label="Description"
                 variant="outlined"
-                value={description}
-                onChange={e => setDescription(e.target.value)}
+                name="description"
+                value={formik.values.description}
+                onChange={formik.handleChange}
+                error={formik.touched.description && Boolean(formik.errors.description)}
+                helperText={formik.touched.description && formik.errors.description}
                 inputProps={{
                   maxlength: DESCRIPTION_LIMIT
                 }}
@@ -123,13 +153,15 @@ const ProductDetails = () => {
               <div>
                 <Typography
                   sx={{ fontSize: '12px', textAlign: 'right' }}>
-                  {`${description.length}/${DESCRIPTION_LIMIT}`}
+                  {`${formik.values.description.length}/${DESCRIPTION_LIMIT}`}
                 </Typography>
               </div>
             </FormControl>
             <Button
               variant="outlined"
-              onClick={handleSubmit}>
+              type='submit'
+            // onClick={handleSubmit}
+            >
               Submit
             </Button>
           </form>

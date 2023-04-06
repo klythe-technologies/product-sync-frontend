@@ -1,9 +1,30 @@
 import React from 'react';
 import { Typography, Box, Button } from '@mui/material';
 import { useRouter } from 'next/router';
+import ProductsList from '../ProductsList';
+import avatar from '../../../public/images/avatars/avatar.jpg';
 
 const AllProducts = () => {
   const router = useRouter();
+
+  const rows = [
+    {
+      id: 1, status: 'Not approved', image: { avatar }, title: 'new product', productId: '4728420171',
+      price: '800.00', lastUpdate: 'Mar 16, 2023', stores: 'example.com', clicks: '0', edit: ''
+    },
+    {
+      id: 2, status: 'Not approved', image: { avatar }, title: 'new product', productId: '4728420171',
+      price: '500.00', lastUpdate: 'Mar 16, 2023', stores: 'example.com', clicks: '0', edit: ''
+    },
+    {
+      id: 3, status: 'Not approved', image: { avatar }, title: 'new product', productId: '4728420171',
+      price: '600.00', lastUpdate: 'Mar 16, 2023', stores: 'example.com', clicks: '0', edit: ''
+    }
+  ]
+
+  if (rows.length) {
+    return <ProductsList rows={rows} />;
+  }
 
   return (
     <Box sx={{ alignItems: 'center' }}>
@@ -20,7 +41,7 @@ const AllProducts = () => {
             <Button
               variant="outlined"
               sx={{ textTransform: 'none', marginRight: '10px', color: '#1967D2' }}
-              onClick={() => router.push('/addProducts')}>
+              onClick={() => router.push('/addproducts')}>
               Add products one by one
             </Button>
             <Button

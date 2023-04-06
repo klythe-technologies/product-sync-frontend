@@ -4,7 +4,8 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import AllProducts from '../allProducts';
+import AllProducts from '../../components/AllProducts';
+import NeedAttention from '../products/diagnostics';
 
 const Products = () => {
   const [value, setValue] = React.useState('1');
@@ -22,9 +23,9 @@ const Products = () => {
             <Tab label="Need Attention" value="2" sx={{ textTransform: 'none', color: '#5f6368' }} />
             <Tab label="Automatic Improvements" value="3" sx={{ textTransform: 'none', color: '#5f6368' }} />
           </TabList>
-        </Box>
+        </Box> 
         <TabPanel value="1"><AllProducts /></TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="2"><NeedAttention /></TabPanel>
         <TabPanel value="3">Item Three</TabPanel>
       </TabContext>
     </Box>

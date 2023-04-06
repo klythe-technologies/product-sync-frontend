@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import AddImageDialog from '../addImageDialog';
+import AddImageDialog from '../AddImageDialog';
 
 const ProductImages = () => {
   const [open, setOpen] = React.useState(false);

@@ -94,7 +94,8 @@ const AddImageDialog = (props: any) => {
                 onChange={handleChange}
               />
               {
-                status === 1 && (<div>
+                status === 1 && (
+                <div>
                   <FormControl sx={{ width: '500px', marginBottom: '25px', marginLeft: '30px' }}>
                     <TextField
                       id="outlined-basic"
@@ -108,7 +109,8 @@ const AddImageDialog = (props: any) => {
                       </Typography>
                     </BottomSectionDiv>
                   </FormControl>
-                </div>)
+                </div>
+                )
               }
             </RadioGroup>
           </FormControl>
