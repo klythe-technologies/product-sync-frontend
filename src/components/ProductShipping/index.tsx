@@ -37,7 +37,7 @@ const HandlingTimeDiv = styled('div')(() => ({
   marginTop: '30px'
 }))
 
-const Shipping = () => {
+const ProductShipping = () => {
   return (
     <div>
       <Accordion>
@@ -254,4 +254,4 @@ const Shipping = () => {
     </div>
   )
 }
-export default Shipping;
+export default ProductShipping;

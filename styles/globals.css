@@ -22,3 +22,7 @@ code:not([class*='language-']):after {
 code[class*='language-'] {
   padding: 0;
 }
+
+.MuiFormControlLabel-label {
+  font-size: 0.875rem !important;
+}

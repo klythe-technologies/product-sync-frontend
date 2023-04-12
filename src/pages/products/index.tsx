@@ -6,6 +6,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import AllProducts from '../../components/AllProducts';
 import NeedAttention from '../products/diagnostics';
+import Shipping from '../products/shipping';
+import Improvements from './improvements';
 
 const Products = () => {
   const [value, setValue] = React.useState('1');
@@ -21,12 +23,22 @@ const Products = () => {
           <TabList onChange={handleChange}>
             <Tab label="All Products" value="1" sx={{ textTransform: 'none', color: '#5f6368' }} />
             <Tab label="Need Attention" value="2" sx={{ textTransform: 'none', color: '#5f6368' }} />
-            <Tab label="Automatic Improvements" value="3" sx={{ textTransform: 'none', color: '#5f6368' }} />
+            <Tab label="Shipping" value="3" sx={{ textTransform: 'none', color: '#5f6368' }} />
+            <Tab label="Automatic Improvements" value="4" sx={{ textTransform: 'none', color: '#5f6368' }} />
           </TabList>
-        </Box> 
-        <TabPanel value="1"><AllProducts /></TabPanel>
-        <TabPanel value="2"><NeedAttention /></TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
+        </Box>
+        <TabPanel value="1">
+          <AllProducts />
+        </TabPanel>
+        <TabPanel value="2">
+          <NeedAttention />
+        </TabPanel>
+        <TabPanel value="3">
+          <Shipping />
+        </TabPanel>
+        <TabPanel value="4">
+          <Improvements />
+        </TabPanel>
       </TabContext>
     </Box>
   )

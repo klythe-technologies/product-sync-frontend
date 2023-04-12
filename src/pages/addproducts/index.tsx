@@ -5,7 +5,7 @@ import ProductPrice from '../../components/Productprice';
 import ProductIdentifier from '../../components/ProductIdentifier';
 import ChooseLanguage from '../../components/ChooseLanguage';
 import ProductDetails from '../../components/ProductDetails';
-import Shipping from '../../components/ProductShipping';
+import ProductShipping from '../../components/ProductShipping';
 
 const addProducts = () => {
   return (
@@ -20,7 +20,7 @@ const addProducts = () => {
       <Divider />
       <ChooseLanguage />
       <Divider sx={{ marginTop: '20px' }} />
-      <Shipping />
+      <ProductShipping />
     </>
   )
 }

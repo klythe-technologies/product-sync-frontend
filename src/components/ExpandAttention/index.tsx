@@ -38,8 +38,6 @@ const ExpandAttention = () => {
             paddingBottom: '0',
             color: 'black',
             backgroundColor: 'white',
-            border: 'none',
-            outline: 'none'
           }} >
           <Typography sx={{
             fontFamily: 'Roboto,Arial,sans-serif',

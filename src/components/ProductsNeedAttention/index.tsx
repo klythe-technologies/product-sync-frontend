@@ -3,7 +3,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { styled } from '@mui/material/styles';
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 import Image from 'next/image';
-import { Typography, Box, Link } from '@mui/material';
+import { Typography, Box, Link, Divider } from '@mui/material';
 import ExpandAttention from '../../components/ExpandAttention';
 import { GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 
@@ -20,19 +20,21 @@ const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }));
 
+
 function CustomToolbar() {
   return (
-    <GridToolbarContainer sx={{ justifyContent: 'end' }}>
-      <Tooltip title="Download a file containing all the currently filtered product issues">
-        <GridToolbarExport sx={{ textTransform: 'none' }} />
-      </Tooltip>
-    </GridToolbarContainer>
+    <Box>
+      <GridToolbarContainer sx={{ justifyContent: 'end' }}>
+        <Tooltip title="Download a file containing all the currently filtered product issues">
+          <GridToolbarExport sx={{ textTransform: 'none' }} />
+        </Tooltip>
+      </GridToolbarContainer>
+      <Divider />
+    </Box>
   );
 }
 
-
 const ProductsNeedAttention = (props: any) => {
-
   const columns: GridColDef[] = [
     {
       field: 'product', headerName: 'Product', width: 300,
@@ -42,7 +44,7 @@ const ProductsNeedAttention = (props: any) => {
             <div style={{ width: '60px', height: '60px' }} >
               <Image src={params.value.avatar} alt='' />
             </div>
-            <Box>
+            <Box sx={{ margin: 'auto' }}>
               <Link href="/products/itemdetails" sx={{ textDecoration: 'underline', color: 'blue', margin: 'auto' }}>
                 Best Kurta
               </Link>
@@ -53,14 +55,6 @@ const ProductsNeedAttention = (props: any) => {
     },
     {
       field: 'potential', headerName: 'Click potential', width: 180,
-      //   renderCell: () => {
-      //     return (
-      //       <div>
-      //         <NotInterestedIcon sx={{ color: 'red' }} />
-      //         <ArrowDropDownIcon />
-      //       </div>
-      //     )
-      //   }
     },
     {
       field: 'status', headerName: 'Status', width: 130,
@@ -70,11 +64,11 @@ const ProductsNeedAttention = (props: any) => {
             justifyContent: 'space-between'
           }}>
             <LightTooltip title="This product isn't showing to customers on Google. Review and fix what needs attention.">
-              <Typography sx={{ borderBottom: '1px dashed black', marginBottom: '15px' }}>
+              <Typography sx={{ borderBottom: '1px dashed black', marginBottom: '15px', fontSize: '14px' }}>
                 Not Approved
               </Typography>
             </LightTooltip>
-            <Link href="/products/editproduct" sx={{ textDecoration: 'none' }}>
+            <Link href="/products/editproduct" sx={{ textDecoration: 'none', color: 'blue' }}>
               Fix
             </Link>
           </Box>
