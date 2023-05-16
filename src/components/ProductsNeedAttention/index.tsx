@@ -63,7 +63,7 @@ const ProductsNeedAttention = (props: any) => {
           <Box sx={{
             justifyContent: 'space-between'
           }}>
-            <LightTooltip title="This product isn't showing to customers on Google. Review and fix what needs attention.">
+            <LightTooltip title="This product isn't showing to customers on Klythe Sync. Review and fix what needs attention.">
               <Typography sx={{ borderBottom: '1px dashed black', marginBottom: '15px', fontSize: '14px' }}>
                 Not Approved
               </Typography>

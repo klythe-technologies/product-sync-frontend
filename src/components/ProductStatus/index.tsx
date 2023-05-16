@@ -41,7 +41,7 @@ const ProductStatus = () => {
                 <FormControlLabel
                   sx={{ fontSize: '14px' }}
                   control={<Checkbox defaultChecked sx={{ color: 'blue' }} />}
-                  label="Show on Google once approved" />
+                  label="Show on Klythe Sync once approved" />
               </div>
             </Box>
             <Divider sx={{ marginBottom: '10px' }} />

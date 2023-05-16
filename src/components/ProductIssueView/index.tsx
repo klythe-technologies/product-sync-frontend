@@ -6,7 +6,7 @@ const ProductIssueView = () => {
     <Box>
       <Box>
         <Typography>
-          Submit a valid value based on Google's product data specification
+          Submit a valid value based on Klythe Sync product data specification
         </Typography>
         <Link sx={{ textDecoration: 'underline', color: 'blue' }}>Learn more</Link>
       </Box>

@@ -12,8 +12,11 @@ import {
   TableHead,
   TableRow
 } from '@mui/material';
+import { useRouter } from 'next/router';
 
 const ShippingTable = () => {
+  const router = useRouter();
+
   const columns = [
     {
       field: 'name', headerName: 'Name', width: 150,
@@ -48,7 +51,12 @@ const ShippingTable = () => {
           </Box>
           <Divider />
           <Box sx={{ padding: '12px 24px' }}>
-            <Button variant='outlined' sx={{ color: 'blue', textTransform: 'none' }}>Add shipping information</Button>
+            <Button variant='outlined'
+              sx={{ color: 'blue', textTransform: 'none' }}
+              onClick={() => router.push('/products/shipping/services')}
+            >
+              Add shipping information
+            </Button>
           </Box>
           <Divider />
           <TableContainer sx={{ maxHeight: 440 }}>

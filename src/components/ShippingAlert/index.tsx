@@ -9,16 +9,17 @@ import {
 const ShippingAlert = () => {
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '25px' }}>
+      <Box sx={{ display: 'flex', marginTop: '25px', marginLeft: '10%' }}>
         <Alert variant="outlined" severity="warning" sx={{ display: 'flex' }}>
-          <Typography sx={{ color: 'black', fontSize: '.875rem', width: '850px' }}>
-            To show products to customers in all the countries you sell in, add your shipping information for the following countries (1): India
+          <Typography sx={{ color: 'black', fontSize: '.875rem', width: '800px' }}>
+            To show products to customers in all the countries you sell in,
+            add your shipping information for the following countries (1): India
           </Typography>
-          <Box>
+          <div style={{ display: 'flex', justifyContent: 'end' }}>
             <Button sx={{ textTransform: 'none', backgroundColor: 'orange', color: 'black' }}>Add shipping</Button>
-          </Box>
+          </div>
         </Alert>
-      </Box>  
+      </Box>
     </Box>
   )
 }

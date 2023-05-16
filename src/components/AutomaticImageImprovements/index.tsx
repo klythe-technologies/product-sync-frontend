@@ -18,7 +18,8 @@ import AutoFixOffIcon from '@mui/icons-material/AutoFixOff';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 const ImageImprovementsCard = () => {
-  const [checked, setChecked] = React.useState(false);
+  const [improvementState, setImprovementState] = React.useState(true);
+  const [checked, setChecked] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -30,12 +31,12 @@ const ImageImprovementsCard = () => {
   };
 
   const handleCheckedBox = () => {
-    setChecked(true);
+    setImprovementState(checked);
     setOpen(false);
   }
 
   const handleUncheckedBox = () => {
-    setChecked(false);
+    setImprovementState(checked);
     setOpen(false);
   }
 
@@ -54,24 +55,19 @@ const ImageImprovementsCard = () => {
           </Box>
           <Box>
             <Typography sx={{ fontSize: '.875rem', marginTop: '10px' }}>
-              Google can remove promotional overlays that would otherwise stop products from being shown.
+              Klyhte Sync can remove promotional overlays that would otherwise stop products from being shown.
               <Link sx={{ color: '#1a73e8', textDecoration: 'underline', marginLeft: '5px' }}>
                 Learn more about automatic image improvements
               </Link>
             </Typography>
           </Box>
           {
-            !checked ?
-
-              <Box sx={{ display: 'flex', gap: '15px', marginTop: '20px', marginBottom: '15px' }}>
-                <AutoFixOffIcon />
-                <Typography sx={{ color: 'gray' }}>Images not improved automatically</Typography>
-              </Box>
-              :
-              <Box sx={{ display: 'flex', gap: '15px', marginTop: '20px', marginBottom: '15px' }}>
-                <AutoFixHighIcon sx={{ color: 'green' }} />
-                <Typography sx={{ color: 'green' }}>Images not improved automatically</Typography>
-              </Box>
+            <Box sx={{ display: 'flex', gap: '15px', marginTop: '20px', marginBottom: '15px' }}>
+              {improvementState ? <AutoFixHighIcon sx={{ color: 'green' }} /> : <AutoFixOffIcon />}
+              <Typography sx={{ color: improvementState ? 'green' : 'grey' }}>
+                {improvementState ? 'Images improved automatically' : 'Images not improved automatically'}
+              </Typography>
+            </Box>
           }
         </Box>
         <Divider />
@@ -102,29 +98,18 @@ const ImageImprovementsCard = () => {
             <Box>
               <FormGroup>
                 {
-                  !checked ?
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          style={{
-                            color: "#1a73e8",
-                          }}
-                        />
-                      }
-                      label="Automatically improve products' main image"
-                    />
-                    :
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          defaultChecked
-                          style={{
-                            color: "#1a73e8",
-                          }}
-                        />
-                      }
-                      label="Automatically improve products' main image"
-                    />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        style={{
+                          color: "#1a73e8",
+                        }}
+                        onChange={(e) => setChecked(e.target.checked)}
+                        checked={checked}
+                      />
+                    }
+                    label="Automatically improve products main image"
+                  />
                 }
               </FormGroup>
             </Box>
@@ -134,14 +119,10 @@ const ImageImprovementsCard = () => {
               Cancel
             </Button>
             {
-              !checked ?
-                <Button autoFocus onClick={handleCheckedBox} sx={{ textTransform: 'none', color: '#1a73e8' }}>
-                  Save
-                </Button>
-                :
-                <Button autoFocus onClick={handleUncheckedBox} sx={{ textTransform: 'none', color: '#1a73e8' }}>
-                  Save
-                </Button>
+              <Button autoFocus onClick={improvementState ? handleCheckedBox : handleUncheckedBox}
+                sx={{ textTransform: 'none', color: '#1a73e8' }}>
+                Save
+              </Button>
             }
           </DialogActions>
         </Dialog>

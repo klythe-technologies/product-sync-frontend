@@ -29,7 +29,7 @@ const ProductFixes = (props: any) => {
       <Box sx={{ marginTop: '20px' }}>
         <div style={{ gap: '39%', display: 'flex' }}>
           <Typography sx={{ fontSize: '1.125rem' }}>
-            Make these fixes to show products on Google
+            Make these fixes to show products on Klythe Sync
           </Typography>
           <Button variant='outlined'
             sx={{ textTransform: 'none', display: 'flex', gap: '5px' }}>
