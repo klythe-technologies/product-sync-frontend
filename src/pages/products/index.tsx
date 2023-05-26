@@ -27,6 +27,7 @@ const Products = () => {
             <Tab label="Automatic Improvements" value="4" sx={{ textTransform: 'none', color: '#5f6368' }} />
           </TabList>
         </Box>
+        
         <TabPanel value="1">
           <AllProducts />
         </TabPanel>
