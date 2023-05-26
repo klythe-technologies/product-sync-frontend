@@ -18,7 +18,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Your business',
       icon: BusinessIcon,
-      path: '/business'
+      path: '/merchantprofile'
     }
   ]
 }
