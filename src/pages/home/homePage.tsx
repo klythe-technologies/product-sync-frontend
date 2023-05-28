@@ -51,25 +51,33 @@ const HomePage = () => {
           <Grid container spacing={2} sx={{ padding: 6 }}>
             <Grid item sx={{ color: 'blue', display: 'flex', gap: 6 }}>
               <ArrowCircleRightOutlinedIcon />
-              <Typography sx={{ color: 'black', fontSize: '14px' }}>Add your business address</Typography>
+              <Typography sx={{ color: 'black', fontSize: '14px' }}>
+                Add your business address
+              </Typography>
               <Link href="#" sx={{ color: 'blue' }}> Add</Link>
             </Grid>
             <Divider sx={{ height: '1vh', width: '100%' }} />
             <Grid item sx={{ color: 'blue', display: 'flex', gap: 6 }}>
               <ArrowCircleRightOutlinedIcon />
-              <Typography sx={{ color: 'black', fontSize: '14px' }}>Verify your phone number to confirm its you</Typography>
+              <Typography sx={{ color: 'black', fontSize: '14px' }}>
+                Verify your phone number to confirm its you
+              </Typography>
               <Link href="#" sx={{ color: 'blue' }}> Verify</Link>
             </Grid>
             <Divider sx={{ height: '1vh', width: '100%' }} />
             <Grid item sx={{ color: 'blue', display: 'flex', gap: 6 }}>
               <ArrowCircleRightOutlinedIcon />
-              <Typography sx={{ color: 'black', fontSize: '14px' }}>Confirm the online store of your business</Typography>
+              <Typography sx={{ color: 'black', fontSize: '14px' }}>
+                Confirm the online store of your business
+              </Typography>
               <Link href="#" sx={{ color: 'blue' }}> Confirm</Link>
             </Grid>
             <Divider sx={{ height: '1vh', width: '100%' }} />
             <Grid item sx={{ color: 'blue', display: 'flex', gap: 6 }}>
               <ArrowCircleRightOutlinedIcon />
-              <Typography sx={{ color: 'black', fontSize: '14px' }}>Add details to show how you ship your products</Typography>
+              <Typography sx={{ color: 'black', fontSize: '14px' }}>
+                Add details to show how you ship your products
+              </Typography>
               <Link href="#" sx={{ color: 'blue' }}> Add</Link>
             </Grid>
             <Divider sx={{ height: '1vh', width: '100%' }} />
@@ -78,7 +86,9 @@ const HomePage = () => {
               <Typography sx={{ color: 'black', fontSize: '14px' }}>Adding Products</Typography>
               <Link href="#" sx={{ color: 'blue' }}>Go to Products</Link>
             </Grid>
-            <Typography sx={{ paddingLeft: '50px', paddingTop: '5px', fontSize: '14px' }}>This might tAddake a few minutes. After your products are added, you'll find them in Products.</Typography>
+            <Typography sx={{ paddingLeft: '50px', paddingTop: '5px', fontSize: '14px' }}>
+              This might tAddake a few minutes. After your products are added, you'll find them in Products.
+            </Typography>
           </Grid>
         </Paper>
       </Box>
