@@ -25,11 +25,11 @@ import Facebook from 'mdi-material-ui/Facebook';
 import EyeOutline from 'mdi-material-ui/EyeOutline';
 import EyeOffOutline from 'mdi-material-ui/EyeOffOutline';
 import klytheLogo from '../../../public/images/logos/klytheLogo.png';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import themeConfig from 'src/configs/themeConfig';
 import BlankLayout from 'src/@core/layouts/BlankLayout';
 import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 
 interface State {
