@@ -1,5 +1,4 @@
-import { ChangeEvent, MouseEvent, ReactNode, useState } from 'react';
-import { useRouter } from 'next/router';
+import { MouseEvent, ReactNode, useState } from 'react';
 import {
   Box,
   Button,
@@ -31,15 +30,10 @@ import BlankLayout from 'src/@core/layouts/BlankLayout';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
+import { useMutation } from "react-query";
+import { axiosClient } from 'src/lib/axiosclient';
 
-interface State {
-  email: string
-  password: string
-  showPassword: boolean
-  remember: boolean
-}
 
-// ** Styled Components
 const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
 }))
@@ -57,55 +51,58 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ t
   }
 }))
 
-
 const schema = yup.object().shape({
-  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+  email: yup.string()
+    .email('You must enter a valid email')
+    .required('Please enter your email'),
   password: yup
     .string()
     .required('Please enter your password.')
     .min(8, 'Password is too short - should be 8 chars minimum.')
 });
 
+const defaultValues = {
+  email: '',
+  password: '',
+  remember: true
+};
+
 const LoginPage = () => {
-  const [values, setValues] = useState<State>({
-    email: '',
-    password: '',
-    showPassword: false,
-    remember: true
-  })
 
-  const { control, formState, handleSubmit, reset } = useForm({
-    mode: 'onChange',
-    values,
-    resolver: yupResolver(schema)
-  });
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { errors } = formState;
-
-  const router = useRouter()
-
-  const handleChange = (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword })
-  }
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
   }
 
-  const onSubmit = () => {
-    reset(values);
-    console.log("values", values);
-    // axios.get('http://localhost:3001/login', {
-    // })
-    //   .then((response) => {
-    //     console.log("value", response);
-    //   });
-  };
+  const mutation = useMutation({
+    mutationFn: (values: any) => {
+      return axiosClient.post('/auth/login', values)
+    },
+  })
 
+  const { control, formState, handleSubmit, reset } = useForm({
+    mode: 'onChange',
+    defaultValues,
+    resolver: yupResolver(schema)
+  });
+
+  const { errors } = formState;
+
+  const onSubmit = (values: any) => {
+    reset(defaultValues);
+    mutation.mutate(values, {
+      onSuccess: () => {
+        alert("Login successfully");
+      },
+      onError: (response) => {
+        alert("An error occured while login");
+        console.log(response);
+      }
+    });
+  };
 
   return (
     <Box className='content-center'>
@@ -139,44 +136,55 @@ const LoginPage = () => {
             autoComplete='off'
             onSubmit={handleSubmit(onSubmit)}
           >
-            <TextField
-              autoFocus
-              fullWidth
-              id='email'
-              label='Email'
-              type="email"
-              variant="outlined"
-              required
-              sx={{ marginBottom: 4 }}
-              error={!!errors.email}
-              helperText={errors?.email?.message}
-              onChange={handleChange('email')}
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  autoFocus
+                  fullWidth
+                  id='email'
+                  label='Email'
+                  type="email"
+                  variant="outlined"
+                  required
+                  sx={{ marginBottom: 4 }}
+                  error={!!errors.email}
+                  helperText={errors?.email?.message}
+                />
+              )}
             />
-            <FormControl fullWidth>
-              <TextField
-                label='Password'
-                value={values.password}
-                id='auth-login-password'
-                error={!!errors.password}
-                helperText={errors?.password?.message}
-                onChange={handleChange('password')}
-                type={values.showPassword ? 'text' : 'password'}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton
-                        edge='end'
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        aria-label='toggle password visibility'
-                      >
-                        {values.showPassword ? <EyeOutline /> : <EyeOffOutline />}
-                      </IconButton>
-                    </InputAdornment>
-                  )
-                }}
-              />
-            </FormControl>
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  autoFocus
+                  label='Password'
+                  id='auth-login-password'
+                  error={!!errors.password}
+                  helperText={errors?.password?.message}
+                  type={showPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position='end'>
+                        <IconButton
+                          edge='end'
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          aria-label='toggle password visibility'
+                        >
+                          {showPassword ? <EyeOutline /> : <EyeOffOutline />}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+              )}
+            />
             <Box
               sx={{ mb: 4, display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'space-between' }}
             >
@@ -187,7 +195,7 @@ const LoginPage = () => {
                   <FormControl>
                     <FormControlLabel
                       label="Remember Me"
-                      control={<Checkbox {...field} />}
+                      control={<Checkbox {...field} defaultChecked />}
                     />
                   </FormControl>
                 )}
@@ -201,7 +209,7 @@ const LoginPage = () => {
               size='large'
               type="submit"
               variant='contained'
-              sx={{ marginBottom: 7 }}
+              sx={{ marginBottom: 7, textTransform: 'none' }}
             >
               Login
             </Button>

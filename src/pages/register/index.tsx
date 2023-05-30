@@ -1,4 +1,4 @@
-import { useState, Fragment, ChangeEvent, MouseEvent, ReactNode } from 'react';
+import { Fragment, MouseEvent, ReactNode, useState } from 'react';
 import Link from 'next/link';
 import {
   Box,
@@ -7,11 +7,8 @@ import {
   Checkbox,
   TextField,
   Typography,
-  InputLabel,
   IconButton,
   CardContent,
-  FormControl,
-  OutlinedInput
 } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
@@ -30,16 +27,10 @@ import Image from 'next/image';
 import klytheLogo from '../../../public/images/logos/klytheLogo.png';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
+import { useMutation } from "react-query";
+import { axiosClient } from 'src/lib/axiosclient';
 
-interface State {
-  name: string
-  email: string
-  password: string
-  showPassword: boolean
-}
-
-// ** Styled Components
 const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
 }))
@@ -60,56 +51,63 @@ const FormControlLabel = styled(MuiFormControlLabel)<FormControlLabelProps>(({ t
 }))
 
 const schema = yup.object().shape({
-  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
-  name: yup
+  email: yup.string()
+    .email('You must enter a valid email')
+    .required('You must enter a email'),
+  firstName: yup
     .string()
-    .required('User name is required.'),
+    .required('First name is required.'),
+  lastName: yup
+    .string()
+    .required('Last name is required.'),
   password: yup
     .string()
     .required('Please enter your password.')
     .min(8, 'Password is too short - should be 8 chars minimum.')
 });
 
+const defaultValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+};
+
 const RegisterPage = () => {
-  // ** States
-  const [values, setValues] = useState<State>({
-    name: '',
-    email: '',
-    password: '',
-    showPassword: false
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+  }
+
+  const mutation = useMutation({
+    mutationFn: (values) => {
+      return axiosClient.post('/auth/register', values)
+    },
   })
 
-  const { formState, handleSubmit, reset } = useForm({
+  const { control, formState, handleSubmit, reset } = useForm({
     mode: 'onChange',
-    values,
+    defaultValues,
     resolver: yupResolver(schema)
   });
 
   const { errors } = formState;
 
-  const handleChange = (prop: keyof State) => (event: ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, [prop]: event.target.value })
-  }
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword })
-  }
-  const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
-  }
-
-  const onSubmit = () => {
-    setValues({
-      name: '',
-      email: '',
-      password: '',
-      showPassword: false
-    })
-    console.log("values", values);
-    // axios.get('http://localhost:3001/register', {
-    // })
-    //   .then((response) => {
-    //     console.log("value", response);
-    //   });
+  const onSubmit = (values: any) => {
+    reset(defaultValues);
+    mutation.mutate(values, {
+      onSuccess: () => {
+        alert("Login successfully");
+      },
+      onError: (response) => {
+        alert("An error occured while Login");
+        console.log(response);
+      }
+    });
   };
 
   return (
@@ -137,63 +135,96 @@ const RegisterPage = () => {
             </Typography>
           </Box>
           <Box sx={{ mb: 6, textAlign: 'center' }}>
-            <Typography variant='body2'>Fill the details to register</Typography>
+            <Typography variant='body2'>Fill the details to register at Klythe Sync</Typography>
           </Box>
           <form
             noValidate
             autoComplete='off'
             onSubmit={handleSubmit(onSubmit)}
           >
-            <TextField
-              autoFocus
-              fullWidth
-              required
-              id='username'
-              label='Username'
-              sx={{ marginBottom: 4 }}
-              error={!!errors.name}
-              helperText={errors?.name?.message}
-              onChange={handleChange('name')}
+            <Controller
+              name="firstName"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  autoFocus
+                  fullWidth
+                  required
+                  id='firstname'
+                  label='FirstName'
+                  sx={{ marginBottom: 4 }}
+                  error={!!errors.firstName}
+                  helperText={errors?.firstName?.message}
+                />
+              )}
             />
-            <TextField
-              fullWidth
-              required
-              autoFocus
-              id='email'
-              type='email'
-              label='Email'
-              sx={{ marginBottom: 4 }}
-              error={!!errors.email}
-              helperText={errors?.email?.message}
-              onChange={handleChange('email')}
+            <Controller
+              name="lastName"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  autoFocus
+                  fullWidth
+                  required
+                  id='lastname'
+                  label='LastName'
+                  sx={{ marginBottom: 4 }}
+                  error={!!errors.lastName}
+                  helperText={errors?.lastName?.message}
+                />
+              )}
             />
-
-            <FormControl fullWidth>
-              <TextField
-                required
-                label='Password'
-                value={values.password}
-                id='auth-register-password'
-                error={!!errors.password}
-                helperText={errors?.password?.message}
-                onChange={handleChange('password')}
-                type={values.showPassword ? 'text' : 'password'}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position='end'>
-                      <IconButton
-                        edge='end'
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        aria-label='toggle password visibility'
-                      >
-                        {values.showPassword ? <EyeOutline fontSize='small' /> : <EyeOffOutline fontSize='small' />}
-                      </IconButton>
-                    </InputAdornment>
-                  )
-                }}
-              />
-            </FormControl>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  fullWidth
+                  required
+                  autoFocus
+                  id='email'
+                  type='email'
+                  label='Email'
+                  sx={{ marginBottom: 4 }}
+                  error={!!errors.email}
+                  helperText={errors?.email?.message}
+                />
+              )}
+            />
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  required
+                  fullWidth
+                  autoFocus
+                  label='Password'
+                  id='auth-register-password'
+                  error={!!errors.password}
+                  helperText={errors?.password?.message}
+                  type={showPassword ? 'text' : 'password'}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position='end'>
+                        <IconButton
+                          edge='end'
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          aria-label='toggle password visibility'
+                        >
+                          {showPassword ? <EyeOutline fontSize='small' /> : <EyeOffOutline fontSize='small' />}
+                        </IconButton>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+              )}
+            />
             <FormControlLabel
               control={<Checkbox />}
               label={
@@ -207,8 +238,8 @@ const RegisterPage = () => {
                 </Fragment>
               }
             />
-            <Button fullWidth size='large' type='submit' variant='contained' sx={{ marginBottom: 7 }}>
-              Sign up
+            <Button fullWidth size='large' type='submit' variant='contained' sx={{ marginBottom: 7, textTransform: 'none' }}>
+              Register
             </Button>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography variant='body2' sx={{ marginRight: 2 }}>

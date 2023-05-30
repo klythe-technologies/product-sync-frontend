@@ -30,6 +30,8 @@ import 'react-perfect-scrollbar/dist/css/styles.css'
 // ** Global css styles
 import '../../styles/globals.css'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
+
 // ** Extend App Props with Emotion
 type ExtendedAppProps = AppProps & {
   Component: NextPage
@@ -51,6 +53,9 @@ if (themeConfig.routingLoader) {
   })
 }
 
+const queryClient = new QueryClient()
+
+
 // ** Configure JSS & ClassName
 const App = (props: ExtendedAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
@@ -59,6 +64,7 @@ const App = (props: ExtendedAppProps) => {
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
 
   return (
+    <QueryClientProvider client={queryClient}>
     <CacheProvider value={emotionCache}>
       <Head>
         <title>{`${themeConfig.templateName} - Material Design React Admin Template`}</title>
@@ -78,6 +84,7 @@ const App = (props: ExtendedAppProps) => {
         </SettingsConsumer>
       </SettingsProvider>
     </CacheProvider>
+    </QueryClientProvider>
   )
 }
 
