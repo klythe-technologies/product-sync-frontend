@@ -1,0 +1,232 @@
+[
+  {
+    "key": "detail",
+    "title": "product.form.product-detail.title",
+    "description": "product.form.product-detail.description",
+    "fields": [
+      {
+        "key": "pageUrl",
+        "label": "product.form.product-detail.label.product-page-url",
+        "example": "https://www.mystore.com/product1",
+        "type": "text",
+        "validations": {
+          "min": 0,
+          "max": 2000,
+          "required": true
+        },
+        "help": [
+          {
+            "type": "text",
+            "text": "product.form.product-detail.help.product-page-url"
+          },
+          {
+            "type": "text",
+            "text": "product.form.product-detail.help.product-page-url.link",
+            "link": "https://test.com/help"
+          },
+          {
+            "type": "list",
+            "text": "product.form.product-detail.help.product-page-url.list",
+            "list": [
+              "product.form.product-detail.help.product-page-url.list.point-1",
+              "product.form.product-detail.help.product-page-url.list.point-2"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "title",
+        "label": "product.form.product-detail.label.title",
+        "type": "text",
+        "validations": {
+          "min": 0,
+          "max": 150,
+          "required": true
+        }
+      },
+      {
+        "key": "brand",
+        "label": "product.form.product-detail.label.brand",
+        "type": "text",
+        "validations": {
+          "min": 0,
+          "max": 70,
+          "required": false
+        }
+      },
+      {
+        "key": "description",
+        "label": "product.form.product-detail.label.description",
+        "type": "text",
+        "validations": {
+          "min": 0,
+          "max": 5000,
+          "required": true
+        }
+      }
+    ]
+  },
+  {
+    "key": "images",
+    "title": "product.form.product-images.title",
+    "description": "product.form.product-images.description",
+    "fields": [
+      {
+        "type": "image",
+        "numberofimages": 4,
+        "imagetooltip": "product.form.product-images.imageTip"
+      },
+      {
+        "key": "button",
+        "type": "button"
+      }
+    ],
+    "help": {
+      "type": "list",
+      "text": "product.form.product-images.help.product-page-url.list",
+      "list": [
+        "product.form.product-images.help.product-page-url.list.point-1",
+        "product.form.product-images.help.product-page-url.list.point-2"
+      ],
+      "link": "https://test.com/help"
+    }
+  },
+  {
+    "key": "product_price",
+    "title": "product.form.product-price.title",
+    "description": "product.form.product-price.description",
+    "example": "Garden furniture",
+    "fields": [
+      {
+        "key": "product_type",
+        "label": "product.form.product-price.label.title",
+        "type": "text",
+        "validations": {
+          "min": 0,
+          "max": 750,
+          "required": true
+        }
+      },
+      {
+        "key": "condition",
+        "type": "dropdown",
+        "label": "product.form.product-price.label.condition",
+        "options": [
+          {
+            "value": "new",
+            "label": "product.form.product-price.label.condition.new"
+          },
+          {
+            "value": "refurbished",
+            "label": "product.form.product-price.label.condition.refurbished"
+          },
+          {
+            "value": "used",
+            "label": "product.form.product-price.label.condition.used"
+          }
+        ]
+      },
+      {
+        "key": "price_group",
+        "type": "group",
+        "fields": [
+          {
+            "key": "price",
+            "type": "number",
+            "label": "product.form.product-price.label.price",
+            "required": true
+          },
+          {
+            "key": "currency",
+            "type": "dropdown",
+            "label": "product.form.product-price.label.currency"
+          },
+          {
+            "key": "availability",
+            "type": "dropdown",
+            "label": "product.form.product-price.label.availability",
+            "options": [
+              {
+                "value": "stock",
+                "label": "stock"
+              },
+              {
+                "value": "out of stock",
+                "label": "outofstock"
+              },
+              {
+                "value": "preorder",
+                "label": "preorder"
+              },
+              {
+                "value": "backorder",
+                "label": "order"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "sale_price_group",
+        "type": "group",
+        "fields": [
+          {
+            "key": "sale_price",
+            "type": "text",
+            "label": "product.form.product-price.label.saleprice"
+          },
+          {
+            "key": "sale_date_range",
+            "type": "text",
+            "label": "product.form.product-price.label.saledaterange"
+          }
+        ]
+      }
+    ],
+    "help": {
+      "type": "text",
+      "text": "product.form.product-price.help.product-page-url.link",
+      "link": "https://test.com/help"
+    }
+  },
+  {
+    "key": "identifiers",
+    "title": "product.form.product-identifiers.title",
+    "description": "product.form.product-identifiers.description",
+    "fields": [
+      {
+        "key": "product_sku",
+        "label": "product.form.product-identifiers.label.product_sku",
+        "type": "text",
+        "example": "Leave empty to have an ID auto-assigned",
+        "validations": {
+          "min": 0,
+          "max": 50,
+          "required": true
+        }
+      },
+      {
+        "key": "isbn",
+        "label": "product.form.product-identifiers.label.isbn",
+        "type": "text",
+        "example": "Appears next to the barcode on this product, for example 012345678905",
+        "add_another_identifier_button": {
+          "type": "button"
+        }
+      }
+    ]
+  },
+  {
+    "key": "language",
+    "title": "product.form.product-language.title",
+    "description": "product.form.product-language.description",
+    "example": "Your product will show in this language",
+    "fields": [
+      {
+        "key": "product_language",
+        "type": "dropdown",
+        "label": "product.form.product-price.language.label.title"
+      }
+    ]
+  }
+]

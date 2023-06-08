@@ -26,3 +26,15 @@ code[class*='language-'] {
 .MuiFormControlLabel-label {
   font-size: 0.875rem !important;
 }
+.css-vtugw8-MuiFormControl-root-MuiTextField-root {
+  margin-top: 0 !important;
+}
+
+.css-2d3lgy-MuiModal-root-MuiPopover-root-MuiMenu-root .MuiMenu-paper {
+  height: 40vh;
+}
+
+.css-2d3lgy-MuiModal-root-MuiPopover-root-MuiMenu-root .MuiMenu-paper {
+  width: 150px;
+  height: 30vh;
+}
