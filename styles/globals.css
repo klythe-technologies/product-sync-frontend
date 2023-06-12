@@ -38,3 +38,11 @@ code[class*='language-'] {
   width: 150px;
   height: 30vh;
 }
+
+.css-8zskq-MuiPaper-root-MuiAccordion-root.Mui-expanded:last-of-type {
+  box-shadow: none;
+  border: none;
+}
+.css-1vy1o7c-MuiButtonBase-root-MuiAccordionSummary-root {
+  padding: 0 !important;
+}

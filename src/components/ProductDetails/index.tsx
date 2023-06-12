@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Divider,
-  Button,
-  TextField,
   Typography,
-  FormControl,
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import ProductFooter from '../ProductFooter';
 
 const validationSchema = yup.object({
   productLink: yup
@@ -23,11 +21,6 @@ const validationSchema = yup.object({
 });
 
 const ProductDetails = (props: any) => {
-  // const [value, setValue] = useState('');
-  // const [title, setTitle] = useState('');
-  // const [brand, setBrand] = useState('');
-  // const [description, setDescription] = useState('');
-
   const VALUE_LIMIT = 2000;
   const TITLE_LIMIT = 150;
   const BRAND_LIMIT = 70;
@@ -56,19 +49,8 @@ const ProductDetails = (props: any) => {
         </Typography>
         <Divider />
         <Box className='main_div' style={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
-          <Box sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
-            <Typography
-              sx={{ fontWeight: '500', fontSize: '16px', color: 'black', whiteSpace: 'nowrap' }}>
-              Product details
-            </Typography>
-            <Typography
-              sx={{ fontSize: '12px' }}>
-              Make sure to add high quality product
-              details that match your online store, if you
-              have one. Add more details to help your
-              products appear in more places on Klythe.</Typography>
-          </Box>
-          <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '48px' }}>
+
+          {/* <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '48px' }}>
             <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '24px' }}>
               <form style={{ width: '100%' }}>
                 <FormControl
@@ -97,70 +79,6 @@ const ProductDetails = (props: any) => {
                     </Typography>
                   </Box>
                 </FormControl>
-                <FormControl
-                  sx={{ width: '100%', minWidth: "400px" }}>
-                  <TextField id="outlined-basic"
-                    label="Title*"
-                    variant="outlined"
-                    name="title"
-                    value={formik.values.title}
-                    onChange={formik.handleChange}
-                    error={formik.touched.title && Boolean(formik.errors.title)}
-                    helperText={formik.touched.title && formik.errors.title}
-                    inputProps={{
-                      maxlength: TITLE_LIMIT
-                    }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
-                  />
-                  <Box>
-                    <Typography
-                      sx={{ fontSize: '12px', textAlign: 'right' }}>
-                      {`${formik.values.title.length}/${TITLE_LIMIT}`}
-                    </Typography>
-                  </Box>
-                </FormControl>
-                <FormControl
-                  sx={{ width: '100%', minWidth: "400px" }}>
-                  <TextField id="outlined-basic"
-                    label="Brand"
-                    variant="outlined"
-                    name="brand"
-                    value={formik.values.brand}
-                    onChange={formik.handleChange}
-                    inputProps={{
-                      maxlength: BRAND_LIMIT
-                    }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
-                  />
-                  <Box>
-                    <Typography sx={{ fontSize: '12px', textAlign: 'right' }}>{`${formik.values.brand.length}/${BRAND_LIMIT}`}</Typography>
-                  </Box>
-                </FormControl>
-                <FormControl
-                  sx={{ width: '100%', minWidth: "400px" }}>
-                  <TextField id="outlined-basic"
-                    label="Description"
-                    variant="outlined"
-                    name="description"
-                    value={formik.values.description}
-                    onChange={formik.handleChange}
-                    error={formik.touched.description && Boolean(formik.errors.description)}
-                    helperText={formik.touched.description && formik.errors.description}
-                    inputProps={{
-                      maxlength: DESCRIPTION_LIMIT
-                    }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
-                    multiline
-                    rows={3}
-                    required
-                  />
-                  <Box>
-                    <Typography
-                      sx={{ fontSize: '12px', textAlign: 'right' }}>
-                      {`${formik.values.description.length}/${DESCRIPTION_LIMIT}`}
-                    </Typography>
-                  </Box>
-                </FormControl>
               </form>
             </Box>
             <Divider orientation="vertical" flexItem sx={{ height: '5vh' }} />
@@ -171,8 +89,9 @@ const ProductDetails = (props: any) => {
                 when they click this product on Klythe.
               </Typography>
             </Box>
-          </Box>
+          </Box> */}
         </Box>
+        <ProductFooter />
       </Box>
     </Box>
   )

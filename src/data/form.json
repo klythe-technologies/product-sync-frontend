@@ -13,26 +13,7 @@
           "min": 0,
           "max": 2000,
           "required": true
-        },
-        "help": [
-          {
-            "type": "text",
-            "text": "product.form.product-detail.help.product-page-url"
-          },
-          {
-            "type": "text",
-            "text": "product.form.product-detail.help.product-page-url.link",
-            "link": "https://test.com/help"
-          },
-          {
-            "type": "list",
-            "text": "product.form.product-detail.help.product-page-url.list",
-            "list": [
-              "product.form.product-detail.help.product-page-url.list.point-1",
-              "product.form.product-detail.help.product-page-url.list.point-2"
-            ]
-          }
-        ]
+        }
       },
       {
         "key": "title",
@@ -57,14 +38,19 @@
       {
         "key": "description",
         "label": "product.form.product-detail.label.description",
-        "type": "text",
+        "type": "textarea",
         "validations": {
           "min": 0,
           "max": 5000,
           "required": true
         }
       }
-    ]
+    ],
+    "help": {
+      "key": "product-detail-help",
+      "type": "text",
+      "text": "product.form.product-detail.help"
+    }
   },
   {
     "key": "images",
@@ -82,11 +68,14 @@
       }
     ],
     "help": {
+      "key": "product-image-help",
       "type": "list",
-      "text": "product.form.product-images.help.product-page-url.list",
+      "text": "product.form.product-images.help.list",
       "list": [
-        "product.form.product-images.help.product-page-url.list.point-1",
-        "product.form.product-images.help.product-page-url.list.point-2"
+        "product.form.product-images.help.list.point-1",
+        "product.form.product-images.help.list.point-2",
+        "product.form.product-images.help.list.point-3",
+        "product.form.product-images.help.list.point-4"
       ],
       "link": "https://test.com/help"
     }
@@ -184,8 +173,9 @@
       }
     ],
     "help": {
-      "type": "text",
-      "text": "product.form.product-price.help.product-page-url.link",
+      "key": "product-price-help",
+      "type": "text-link",
+      "text": "product.form.product-price.help.link",
       "link": "https://test.com/help"
     }
   },
@@ -220,12 +210,114 @@
     "key": "language",
     "title": "product.form.product-language.title",
     "description": "product.form.product-language.description",
-    "example": "Your product will show in this language",
     "fields": [
       {
         "key": "product_language",
         "type": "dropdown",
-        "label": "product.form.product-price.language.label.title"
+        "label": "product.form.product-price.language.label.title",
+        "example": "Your product will show in this language"
+      }
+    ]
+  },
+  {
+    "key": "additional_details",
+    "type": "accordian",
+    "title": "product.form.product-additional-details-title",
+    "description": "product.form.product-additional-details-description",
+    "fields": [
+      {
+        "key": "color",
+        "type": "text",
+        "label": "product.form.product-additional-details.label.color",
+        "example": "Required for apparel. Example: Silver",
+        "validations": {
+          "min": 0,
+          "max": 100
+        }
+      },
+      {
+        "key": "size",
+        "type": "text",
+        "label": "product.form.product-additional-details.label.size",
+        "example": "Required for Clothing & Shoes. Example: S",
+        "validations": {
+          "min": 0,
+          "max": 100
+        }
+      },
+      {
+        "key": "size_type",
+        "type": "dropdown_checkbox",
+        "label": "product.form.product-additional-details.label.size_type"
+      },
+      {
+        "key": "size_system",
+        "type": "dropdown",
+        "label": "product.form.product-additional-details.label.size_system"
+      },
+      {
+        "key": "gender",
+        "type": "dropdown",
+        "label": "product.form.product-additional-details.label.gender",
+        "options": [
+          {
+            "value": "female",
+            "label": "product.form.product-additional-details.label.gender.female"
+          },
+          {
+            "value": "male",
+            "label": "product.form.product-additional-details.label.gender.male"
+          },
+          {
+            "value": "unisex",
+            "label": "product.form.product-additional-details.label.gender.unisex"
+          }
+        ]
+      },
+      {
+        "key": "material",
+        "type": "text",
+        "label": "product.form.product-additional-details.label.material",
+        "validations": {
+          "min": 0,
+          "max": 200
+        }
+      },
+      {
+        "key": "pattern",
+        "type": "text",
+        "label": "product.form.product-additional-details.label.pattern",
+        "validations": {
+          "min": 0,
+          "max": 100
+        }
+      },
+      {
+        "key": "age_group",
+        "type": "dropdown",
+        "label": "product.form.product-additional-details.label.agegroup",
+        "options": [
+          {
+            "value": "newborn",
+            "label": "product.form.product-additional-details.label.agegroup.newborn"
+          },
+          {
+            "value": "infant",
+            "label": "product.form.product-additional-details.label.agegroup.infant"
+          },
+          {
+            "value": "toddler",
+            "label": "product.form.product-additional-details.label.agegroup.toddler"
+          },
+          {
+            "value": "kids",
+            "label": "product.form.product-additional-details.label.agegroup.kids"
+          },
+          {
+            "value": "adult",
+            "label": "product.form.product-additional-details.label.agegroup.adult"
+          }
+        ]
       }
     ]
   }

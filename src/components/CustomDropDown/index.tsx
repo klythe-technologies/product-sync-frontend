@@ -24,16 +24,8 @@ const CustomDropDown = ({ fieldData, width }: any) => {
               margin="normal"
               sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
             >
-
-              {(fieldData.key === "condition")
-                && fieldData?.options?.map((option: any) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-
-              {(fieldData.key === "availability")
-                && fieldData?.options?.map((option: any) => (
+              {
+                fieldData?.options?.map((option: any) => (
                   <MenuItem key={option.value} value={option.value}>
                     {option.label}
                   </MenuItem>
@@ -59,7 +51,6 @@ const CustomDropDown = ({ fieldData, width }: any) => {
         </form>
       </Box>
     </Box>
-
   )
 }
 export default CustomDropDown;

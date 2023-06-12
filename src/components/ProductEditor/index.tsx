@@ -6,21 +6,13 @@ import ProductIdentifier from '../ProductIdentifier';
 import ChooseLanguage from '../ChooseLanguage';
 import ProductDetails from '../ProductDetails';
 import Shipping from '../ProductShipping';
+import ProductFooter from '../ProductFooter';
+import ProductEditorNew from '../ProductEditorNew';
 
 const ProductEditor = ({ title }: any) => {
   return (
     <>
-      <ProductDetails title={title} />
-      <Divider />
-      <ProductImages />
-      <Divider />
-      <ProductPrice />
-      <Divider />
-      <ProductIdentifier />
-      <Divider />
-      <ChooseLanguage />
-      <Divider sx={{ marginTop: '20px' }} />
-      <Shipping />
+    {/* <ProductEditorNew/> */}
     </>
   )
 }

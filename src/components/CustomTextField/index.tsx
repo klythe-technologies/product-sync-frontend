@@ -70,8 +70,8 @@ const CustomTextField = ({ fieldData, width }: any) => {
                 {
                   fieldData.validations?.max
                     ?
-                    <Typography sx={{ fontSize: '12px', justifyContent: 'right' }}>
-                      {`${fieldData?.validations?.min}/${fieldData?.validations?.max}`}
+                    <Typography sx={{ fontSize: '12px', justifyContent: 'right', marginTop: '5px' }}>
+                      {`${fieldData?.validations?.min} / ${fieldData?.validations?.max}`}
                     </Typography>
                     : ''
                 }
@@ -84,9 +84,6 @@ const CustomTextField = ({ fieldData, width }: any) => {
                       inputList.length > 0
                         ? inputList.map((input, index) => (
                           <Box key={index}>
-                            {/* <FormControl
-                            sx={{ marginBottom: '25px', marginTop: '15px' }}
-                          > */}
                             <Box sx={{ display: 'flex', width: '100%' }}>
                               <TextField
                                 id={`outlined-basic-${fieldData.key}`}
@@ -98,7 +95,7 @@ const CustomTextField = ({ fieldData, width }: any) => {
                               />
                               <DeleteIcon
                                 onClick={() => handleRemoveInput(index)}
-                                sx={{ marginTop: '25px', marginLeft: '20px' }}
+                                sx={{ marginTop: '15px', marginLeft: '18px' }}
                               />
                             </Box>
                             <Box className='bottom_section'
@@ -117,7 +114,7 @@ const CustomTextField = ({ fieldData, width }: any) => {
                                 fieldData.validations?.max
                                   ?
                                   <Typography sx={{ fontSize: '12px', justifyContent: 'right' }}>
-                                    {`${fieldData?.validations?.min}/${fieldData?.validations?.max}`}
+                                    {`${fieldData?.validations?.min} / ${fieldData?.validations?.max}`}
                                   </Typography>
                                   : ''
                               }
@@ -137,9 +134,7 @@ const CustomTextField = ({ fieldData, width }: any) => {
                     </Box>
                   </FormControl>
                   : ''
-
               }
-
             </FormControl>
           </form>
         </Box>
