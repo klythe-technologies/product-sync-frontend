@@ -17,6 +17,7 @@ import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
 import CellphoneLink from 'mdi-material-ui/CellphoneLink'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
+import CardMenu from 'src/@core/components/MenuItem'
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
@@ -85,10 +86,10 @@ const StatisticsCard = () => {
   return (
     <Card>
       <CardHeader
-        title='Statistics Card'
+        title='Statistics'
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
-            <DotsVertical />
+            <CardMenu item1="Last 28 Days" item2="Last Month" item3="Last  Year"/>
           </IconButton>
         }
         subheader={

@@ -21,6 +21,10 @@ import StatisticsCard from 'src/views/dashboard/StatisticsCard'
 import WeeklyOverview from 'src/views/dashboard/WeeklyOverview'
 import DepositWithdraw from 'src/views/dashboard/DepositWithdraw'
 import SalesByCountries from 'src/views/dashboard/SalesByCountries'
+import SalesChart from 'src/views/dashboard/SalesChart'
+import SalesPieChart from 'src/views/dashboard/SalesOverview'
+import TopProducts from 'src/views/dashboard/TopProducts'
+import TopCustomers from 'src/views/dashboard/TopCustomer'
 
 const Dashboard = () => {
   return (
@@ -32,12 +36,16 @@ const Dashboard = () => {
         <Grid item xs={12} md={8}>
           <StatisticsCard />
         </Grid>
+        <Grid item xs={12} md={12}>
+          <SalesChart />
+        </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <WeeklyOverview />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <TotalEarning />
         </Grid>
+
         <Grid item xs={12} md={6} lg={4}>
           <Grid container spacing={6}>
             <Grid item xs={6}>
@@ -66,8 +74,8 @@ const Dashboard = () => {
                 stats='862'
                 trend='negative'
                 trendNumber='-18%'
-                title='New Project'
-                subtitle='Yearly Project'
+                title='New Product'
+                subtitle='Yearly Product'
                 icon={<BriefcaseVariantOutline />}
               />
             </Grid>
@@ -85,14 +93,17 @@ const Dashboard = () => {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <SalesByCountries />
+          <TopProducts />
         </Grid>
-        <Grid item xs={12} md={12} lg={8}>
-          <DepositWithdraw />
+        <Grid item xs={12} md={6} lg={8}>
+          <TopCustomers />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={6}>
+          <SalesPieChart />
+        </Grid>
+        {/* <Grid item xs={12}>
           <Table />
-        </Grid>
+        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )

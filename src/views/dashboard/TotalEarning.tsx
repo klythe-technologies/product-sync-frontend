@@ -14,6 +14,7 @@ import DotsVertical from 'mdi-material-ui/DotsVertical'
 
 // ** Types
 import { ThemeColor } from 'src/@core/layouts/types'
+import CardMenu from 'src/@core/components/MenuItem'
 
 interface DataType {
   title: string
@@ -29,29 +30,29 @@ const data: DataType[] = [
   {
     progress: 75,
     imgHeight: 20,
-    title: 'Zipcar',
+    title: 'Google',
     color: 'primary',
     amount: '$24,895.65',
-    subtitle: 'Vuejs, React & HTML',
-    imgSrc: '/images/cards/logo-zipcar.png'
+    subtitle: 'Google Shopping',
+    imgSrc: '/integrationlogo/image/googlelogoicon.png'
   },
   {
     progress: 50,
     color: 'info',
     imgHeight: 27,
-    title: 'Bitbank',
+    title: 'Facebook',
     amount: '$8,650.20',
-    subtitle: 'Sketch, Figma & XD',
-    imgSrc: '/images/cards/logo-bitbank.png'
+    subtitle: 'facebook',
+    imgSrc: '/integrationlogo/image/facebooklogo.png'
   },
   {
     progress: 20,
     imgHeight: 20,
-    title: 'Aviato',
+    title: 'Amazon',
     color: 'secondary',
     amount: '$1,245.80',
-    subtitle: 'HTML & Angular',
-    imgSrc: '/images/cards/logo-aviato.png'
+    subtitle: 'amazon',
+    imgSrc: '/integrationlogo/image/amazonlogo.png'
   }
 ]
 
@@ -63,7 +64,7 @@ const TotalEarning = () => {
         titleTypographyProps={{ sx: { lineHeight: '1.6 !important', letterSpacing: '0.15px !important' } }}
         action={
           <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
-            <DotsVertical />
+            <CardMenu item1="Last 28 Days" item2="Last Month" item3="Last  Year" />
           </IconButton>
         }
       />

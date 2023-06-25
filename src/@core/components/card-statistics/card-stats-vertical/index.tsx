@@ -17,6 +17,7 @@ const CardStatsVertical = (props: CardStatsVerticalProps) => {
   const { title, subtitle, color, icon, stats, trend, trendNumber } = props
 
   return (
+    
     <Card>
       <CardContent>
         <Box sx={{ display: 'flex', marginBottom: 5.5, alignItems: 'flex-start', justifyContent: 'space-between' }}>
