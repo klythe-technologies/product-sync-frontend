@@ -66,7 +66,7 @@ const ProductDetails = (props: any) => {
             <Box sx={{ display: 'flex', flexGrow: 2, flexBasis: '24px' }}>
               <form style={{ width: '100%' }}>
                 <FormControl
-                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px' }}>
+                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px', marginBottom: '25px' }}>
                   <TextField id="outlined-basic"
                     label="Product page on your online store"
                     variant="outlined"
@@ -78,21 +78,22 @@ const ProductDetails = (props: any) => {
                     inputProps={{
                       maxlength: VALUE_LIMIT
                     }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
+                    sx={{ lineHeight: '1.25rem !important' }}
                   />
-                  <Box className='bottom_section' style={{ display: 'flex', gap: '35%', fontSize: '10px' }}>
+                  <Box className='bottom_section'
+                    sx={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px' }}>
                     <Typography
                       sx={{ fontSize: '10px' }}>
                       Example: https://www.mystore.com/product1
                     </Typography>
                     <Typography
-                      sx={{ fontSize: '10px' }}>
+                      sx={{ fontSize: '10px', marginRight: '10px' }}>
                       {`${formik.values.productLink.length}/${VALUE_LIMIT}`}
                     </Typography>
                   </Box>
                 </FormControl>
                 <FormControl
-                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px' }}>
+                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px', marginBottom: '25px' }}>
                   <TextField id="outlined-basic"
                     label="Title*"
                     variant="outlined"
@@ -104,17 +105,17 @@ const ProductDetails = (props: any) => {
                     inputProps={{
                       maxlength: TITLE_LIMIT
                     }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
+                    sx={{ lineHeight: '1.25rem !important' }}
                   />
                   <Box>
                     <Typography
-                      sx={{ fontSize: '12px', textAlign: 'right' }}>
+                      sx={{ fontSize: '12px', textAlign: 'right', marginRight: '10px' }}>
                       {`${formik.values.title.length}/${TITLE_LIMIT}`}
                     </Typography>
                   </Box>
                 </FormControl>
                 <FormControl
-                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px' }}>
+                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px', marginBottom: '25px' }}>
                   <TextField id="outlined-basic"
                     label="Brand"
                     variant="outlined"
@@ -124,16 +125,16 @@ const ProductDetails = (props: any) => {
                     inputProps={{
                       maxlength: BRAND_LIMIT
                     }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
+                    sx={{ lineHeight: '1.25rem !important' }}
                   />
                   <Box>
-                    <Typography sx={{ fontSize: '10px', textAlign: 'right' }}>
+                    <Typography sx={{ fontSize: '10px', textAlign: 'right', marginRight: '10px' }}>
                       {`${formik.values.brand.length}/${BRAND_LIMIT}`}
                     </Typography>
                   </Box>
                 </FormControl>
                 <FormControl
-                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px' }}>
+                  sx={{ width: '100%', minWidth: "200px", maxWidth: '500px', marginBottom: '25px' }}>
                   <TextField id="outlined-basic"
                     label="Description"
                     variant="outlined"
@@ -145,14 +146,14 @@ const ProductDetails = (props: any) => {
                     inputProps={{
                       maxlength: DESCRIPTION_LIMIT
                     }}
-                    sx={{ lineHeight: '1.25rem !important', marginBottom: '25px' }}
+                    sx={{ lineHeight: '1.25rem !important' }}
                     multiline
                     rows={3}
                     required
                   />
                   <Box>
                     <Typography
-                      sx={{ fontSize: '10px', textAlign: 'right' }}>
+                      sx={{ fontSize: '10px', textAlign: 'right', marginRight: '10px' }}>
                       {`${formik.values.description.length}/${DESCRIPTION_LIMIT}`}
                     </Typography>
                   </Box>

@@ -77,7 +77,8 @@ const ProductPrice = () => {
     <>
       <Box>
         <MainDiv sx={{ display: 'flex', flexWrap: 'wrap' }}>
-          <Box className='main_Box' sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
+          <Box className='main_Box'
+            sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
             <Box sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
               <Typography
                 sx={{ fontWeight: '500', fontSize: '16px', color: 'black', whiteSpace: 'nowrap' }}>
@@ -93,7 +94,8 @@ const ProductPrice = () => {
             <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '48px' }}>
               <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '24px' }}>
                 <form style={{ width: '100%' }}>
-                  <FormControl sx={{  minWidth: '320px', maxWidth: '600px !important' }}>
+                  <FormControl
+                    sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '550px' }} >
                     <TextField id="outlined-basic"
                       label="Product type"
                       variant="outlined"
@@ -117,7 +119,10 @@ const ProductPrice = () => {
                       ? inputList.map((input, index) => (
                         <Box key={index}>
                           <FormControl
-                            sx={{  minWidth: '300px', maxWidth: '600px !important', marginBottom: '25px', marginTop: '15px' }}>
+                            sx={{
+                              fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '550px',
+                              marginBottom: '25px', marginTop: '15px'
+                            }}>
                             <TextField id="outlined-basic"
                               label="Product type"
                               variant="outlined"
@@ -139,7 +144,7 @@ const ProductPrice = () => {
                         </Box>
                       ))
                       : ""}
-                    <Box sx={{ textAlign: 'end', marginTop: '10px' }}>
+                    <Box sx={{ textAlign: 'end' }}>
                       <Button
                         variant="text"
                         sx={{ textTransform: 'none', color: 'blue', gap: '5px' }}
@@ -149,7 +154,8 @@ const ProductPrice = () => {
                       </Button>
                     </Box>
                   </FormControl>
-                  <FormControl sx={{ minWidth: '320px', maxWidth: '600px' }}>
+                  <FormControl
+                    sx={{ fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '550px', display: 'flex' }}>
                     <TextField
                       select
                       type="select"
@@ -164,7 +170,7 @@ const ProductPrice = () => {
                     </TextField>
                   </FormControl>
                   <TextFieldDiv sx={{ display: 'flex', flexWrap: 'wrap' }}>
-                    <FormControl sx={{ maxWidth: '320px', minWidth: '130px' }}>
+                    <FormControl>
                       <TextField
                         label="Price"
                         required
@@ -174,7 +180,7 @@ const ProductPrice = () => {
                         sx={{ width: '15px', position: 'absolute' }}
                       />
                     </FormControl>
-                    <FormControl sx={{ maxWidth: '320px', minWidth: '160px' }}>
+                    <FormControl>
                       <TextField
                         select
                         label="Currency"
@@ -189,7 +195,7 @@ const ProductPrice = () => {
                         }
                       </TextField>
                     </FormControl>
-                    <FormControl sx={{ maxWidth: '320px', minWidth: '160px' }}>
+                    <FormControl>
                       <TextField
                         select
                         required
@@ -205,8 +211,9 @@ const ProductPrice = () => {
                       </TextField>
                     </FormControl>
                   </TextFieldDiv>
-                  <Box style={{ marginTop: '10px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-                    <FormControl sx={{ minWidth: '160px', maxWidth: '250px' }}>
+                  <Box
+                    sx={{ marginTop: '10px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+                    <FormControl sx={{ maxWidth: '340px' }}>
                       <TextField
                         label="Sale Price"
                         sx={{ fontSize: '10px' }}
@@ -217,7 +224,7 @@ const ProductPrice = () => {
                         sx={{ width: '15px', position: 'absolute' }}
                       />
                     </FormControl>
-                    <FormControl sx={{ minWidth: '160px', maxWidth: '250px' }}>
+                    <FormControl sx={{ maxWidth: '350px' }}>
                       <TextField label="Select date range" />
                     </FormControl>
                   </Box>

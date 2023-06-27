@@ -7,7 +7,6 @@ import {
   Typography,
   CardContent,
 } from '@mui/material';
-import Chip from '@mui/material/Chip';
 
 const IntegrationCard = (props: any) => {
   const [connect, setConnect] = useState(false);
@@ -50,7 +49,6 @@ const IntegrationCard = (props: any) => {
                 >
                   Connected
                 </Button>
-                // <Chip label="Connected" color="success" variant="outlined" style={{fontSize: '11px', height: '25px !important'}} />
                 : ''
             }
           </Box>

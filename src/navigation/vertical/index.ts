@@ -25,7 +25,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Product',
       icon: LocalOfferIcon,
-      path: '/addproducts'
+      path: '/addproduct'
     },
     {
       title: 'Inventory',
@@ -55,4 +55,4 @@ const navigation = (): VerticalNavItemsType => {
   ]
 }
 
-export default navigation
+export default navigation;

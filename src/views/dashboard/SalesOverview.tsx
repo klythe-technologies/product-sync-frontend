@@ -2,7 +2,7 @@ import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { pieData } from "src/constants/sales-pie-chart-data";
 import { colors } from "src/constants/sales-pie-chart-data";
-import { Box, Card, CardContent, CardHeader, Grid, Typography, Divider } from '@mui/material';
+import { Box, Card, CardContent, CardHeader, Grid } from '@mui/material';
 
 const SalesPieChart = () => {
 
@@ -12,8 +12,10 @@ const SalesPieChart = () => {
         <Box
           className="custom-tooltip"
           style={{
-            // backgroundColor: "#ffff",
+            color: "white",
             padding: "5px",
+            fontSize: "10px",
+            textAlign: 'left'
           }}
         >
           <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
@@ -30,6 +32,7 @@ const SalesPieChart = () => {
       <CardContent>
         <Grid container spacing={6}>
           <Grid item xs={12}>
+          <ResponsiveContainer width="100%" height={300}>
             <PieChart width={450} height={300} >
               <Pie
                 data={pieData}
@@ -49,19 +52,10 @@ const SalesPieChart = () => {
                 ))}
               </Pie>
               <Tooltip content={<CustomTooltip />} />
-              <Legend layout="vertical" align="right" verticalAlign="bottom" />
+              <Legend/>
             </PieChart>
+            </ResponsiveContainer>
           </Grid>
-          {/* <Grid item xs={12}>
-            <Box>
-              <Box>
-                <Typography>Number of sales</Typography>
-                <Typography>$86,400</Typography>
-              </Box>
-              <Divider />
-            </Box>
-
-          </Grid> */}
         </Grid>
       </CardContent>
     </Card>

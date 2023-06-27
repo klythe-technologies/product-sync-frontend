@@ -6,6 +6,7 @@ import {
   Tooltip,
   LineChart,
   CartesianGrid,
+  ResponsiveContainer
 } from "recharts";
 import { data } from '../../constants/sales-chart-data';
 import {
@@ -24,27 +25,32 @@ const SalesChart = () => {
         <Chip label="25%" color="success" variant="outlined" ></Chip>
       </CardHeader>
       <CardContent>
-        <LineChart
-          width={1000}
+        <ResponsiveContainer
+          width="100%"
           height={370}
-          data={data}
-          margin={{
-            top: 5,
-            right: 40,
-            bottom: 5,
-          }}
         >
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="name" style={{ fontSize: '11px' }} />
-          <YAxis style={{ fontSize: '11px' }} />
-          <Tooltip />
-          <Line
-            type="linear"
-            dataKey="percentage"
-            stroke="#8884d8"
-            strokeWidth="2"
-          />
-        </LineChart>
+          <LineChart
+            width={1000}
+            height={370}
+            data={data}
+            margin={{
+              top: 5,
+              right: 40,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid stroke="#ccc" />
+            <XAxis dataKey="name" style={{ fontSize: '11px' }} />
+            <YAxis style={{ fontSize: '11px' }} />
+            <Tooltip />
+            <Line
+              type="linear"
+              dataKey="percentage"
+              stroke="#8884d8"
+              strokeWidth="2"
+            />
+          </LineChart>
+        </ResponsiveContainer>
       </CardContent>
     </Card>
   );

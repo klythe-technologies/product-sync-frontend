@@ -4,9 +4,7 @@ import {
   FormControl,
   TextField,
   Button,
-  Link,
   Box,
-  Divider
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -67,7 +65,7 @@ const ProductIdentifier = () => {
             <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '24px' }}>
               <form style={{ width: '100%' }}>
                 <FormControl
-                  sx={{ width: '100%', minWidth: '200px', maxWidth: '500px' }}>
+                  sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '550px' }}>
                   <TextField id="outlined-basic"
                     label="ID or SKU"
                     variant="outlined"
@@ -78,7 +76,7 @@ const ProductIdentifier = () => {
                     onChange={e => setProductId(e.target.value)}
                   />
                   <Box className='bottom_section'
-                    style={{ display: 'flex', gap: '43%', fontSize: '12px', marginBottom: '25px' }}>
+                    style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', marginBottom: '25px' }}>
                     <Typography
                       sx={{ fontSize: '10px' }}>
                       Leave empty to have an ID auto-assigned
@@ -90,7 +88,7 @@ const ProductIdentifier = () => {
                   </Box>
                 </FormControl>
                 <FormControl
-                  sx={{ minWidth: '200px', maxWidth: '500px', marginBottom: '25px' }}>
+                  sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '520px', marginBottom: '25px' }}>
                   <TextField id="outlined-basic"
                     label="GTIN, UPC, EAN, JAN or ISBN"
                     variant="outlined"
@@ -105,7 +103,10 @@ const ProductIdentifier = () => {
                     ? inputList.map((input, index) => (
                       <Box key={index}>
                         <FormControl
-                          sx={{ minWidth: '200px', maxWidth: '500px', marginBottom: '25px', marginTop: '15px' }}>
+                          sx={{
+                            fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '450px',
+                            marginTop: '15px', justifyContent: 'space-between'
+                          }}>
                           <TextField id="outlined-basic"
                             label="GTIN, UPC, EAN, JAN or ISBN"
                             variant="outlined"
@@ -114,12 +115,12 @@ const ProductIdentifier = () => {
                         </FormControl>
                         <DeleteIcon
                           onClick={() => handleRemoveInput(index)}
-                          sx={{ marginTop: '25px', marginLeft: '20px' }}
+                          sx={{ marginTop: '25px', marginLeft: '10px' }}
                         />
                       </Box>
                     ))
                     : ""}
-                  <Box sx={{ textAlign: 'end', marginTop: '20px' }}>
+                  <Box sx={{ textAlign: 'end' }}>
                     <Button
                       variant="text"
                       sx={{ textTransform: 'none', color: 'blue', gap: '5px' }}
