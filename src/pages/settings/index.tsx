@@ -3,11 +3,11 @@ import {
   Box, Typography
 } from '@mui/material';
 
-const SettingsComingSoon = () => {
+const Settings = () => {
   return (
     <Box>
       <Typography>Coming soon</Typography>
     </Box>
   )
 }
-export default SettingsComingSoon;
+export default Settings;  

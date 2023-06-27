@@ -3,11 +3,11 @@ import {
   Box, Typography
 } from '@mui/material';
 
-const NotificationComingSoon = () => {
+const Notification = () => {
   return (
     <Box>
       <Typography>Coming soon</Typography>
     </Box>
   )
 }
-export default NotificationComingSoon;
+export default Notification;

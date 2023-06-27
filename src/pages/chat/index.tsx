@@ -3,11 +3,11 @@ import {
   Box, Typography
 } from '@mui/material';
 
-const ChatComingSoon = () => {
+const Chat = () => {
   return (
     <Box>
       <Typography>Coming soon</Typography>
     </Box>
   )
 }
-export default ChatComingSoon;
+export default Chat;
