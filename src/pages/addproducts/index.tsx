@@ -11,7 +11,7 @@ const addProducts = () => {
   return (
     <>
       <ProductDetails />
-      <Divider />
+      {/* <Divider />
       <ProductImages />
       <Divider />
       <ProductPrice />
@@ -20,7 +20,7 @@ const addProducts = () => {
       <Divider />
       <ChooseLanguage />
       <Divider sx={{ marginTop: '20px' }} />
-      <ProductShipping />
+      <ProductShipping /> */}
     </>
   )
 }
