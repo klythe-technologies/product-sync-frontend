@@ -23,10 +23,11 @@ const IntegrationCard = (props: any) => {
   }
 
   return (
-    <Card>
-      <CardMedia>
-        <img src={'/images/cards/paper-boat.png'} alt="Icon"
-          style={{ height: '14.5625rem', margin: 'auto' }} />
+     
+    <Card sx={{width: '60%', borderRadius: '8px', height:'100%'}}>
+      <CardMedia sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src={'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'} alt="Icon"
+          style={{ height: '40%', width: '50%', margin: '2vw' }} />
       </CardMedia>
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -37,8 +38,8 @@ const IntegrationCard = (props: any) => {
         <Typography sx={{ fontSize: '12px' }}>
           {props.description}
         </Typography>
-        <Box sx={{ justifyContent: 'space-between', marginTop: '20px', display: 'flex' }}>
-          <Box>
+        <Box sx={{  marginTop: '20px', display: 'flex' }}>
+          <Box style={{width:'100%'}}>
             {
               connect ?
                 <Button
@@ -46,6 +47,7 @@ const IntegrationCard = (props: any) => {
                   sx={{
                     textTransform: 'none', padding: '5px',
                     fontSize: '10px', borderRadius: '40px'
+                   
                   }}
                 >
                   Connected
@@ -54,25 +56,25 @@ const IntegrationCard = (props: any) => {
                 : ''
             }
           </Box>
-          <Box >
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width:'330in', marginRight:'6px', margin:'none' }}>
             {
               !connect ?
                 <Button
                   variant='contained'
-                  sx={{
-                    textTransform: 'none', padding: '5px',
-                    fontSize: '11px'
-                  }}
                   onClick={handleConnect}
+                  fullWidth
                 >
                   Connect
                 </Button>
                 :
                 <Button
                   variant='contained'
+
                   sx={{
                     textTransform: 'none', padding: '5px',
-                    fontSize: '11px'
+                    fontSize: '11px',
+                    color:'primary' 
+                   
                   }}
                   onClick={handleDisconnect}
                 >
