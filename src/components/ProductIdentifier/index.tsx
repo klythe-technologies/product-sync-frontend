@@ -69,6 +69,7 @@ const ProductIdentifier = () => {
                   <TextField id="outlined-basic"
                     label="ID or SKU"
                     variant="outlined"
+                    sx={{width:'41rem'}}
                     inputProps={{
                       maxlength: PRODUCT_ID_LIMIT
                     }}
@@ -92,6 +93,7 @@ const ProductIdentifier = () => {
                   <TextField id="outlined-basic"
                     label="GTIN, UPC, EAN, JAN or ISBN"
                     variant="outlined"
+                    sx={{width:'41rem'}}
                   />
                   <div className='bottom_section' style={{ display: 'flex', gap: '35%', fontSize: '12px' }}>
                     <Typography
@@ -101,21 +103,22 @@ const ProductIdentifier = () => {
                   </div>
                   {inputList.length > 0
                     ? inputList.map((input, index) => (
-                      <Box key={index}>
+                      <Box key={index} sx={{display:'flex', flexDirection:'row'}}>
                         <FormControl
                           sx={{
-                            fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '450px',
-                            marginTop: '15px', justifyContent: 'space-between'
+                            maxWidth: '100%',
+                            marginTop: '15px', 
                           }}>
                           <TextField id="outlined-basic"
                             label="GTIN, UPC, EAN, JAN or ISBN"
                             variant="outlined"
                             onChange={(event) => handleInputChange(event, index)}
+                            sx={{width:'39rem'}}
                           />
                         </FormControl>
                         <DeleteIcon
                           onClick={() => handleRemoveInput(index)}
-                          sx={{ marginTop: '25px', marginLeft: '10px' }}
+                          sx={{marginTop:'25px'}}
                         />
                       </Box>
                     ))
