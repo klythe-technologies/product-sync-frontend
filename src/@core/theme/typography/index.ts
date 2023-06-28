@@ -6,7 +6,7 @@ const Typography = (theme: Theme) => {
     h1: {
       fontWeight: 500,
       letterSpacing: '-1.5px',
-      color: theme.palette.text.primary
+      color: theme.palette.text.primary,
     },
     h2: {
       fontWeight: 500,
@@ -33,11 +33,15 @@ const Typography = (theme: Theme) => {
       color: theme.palette.text.primary
     },
     subtitle1: {
+      fontWeight: 600,
+      fontSize: '1rem',
       letterSpacing: '0.15px',
       color: theme.palette.text.primary
     },
     subtitle2: {
-      letterSpacing: '0.1px',
+      fontSize: '0.7rem',
+      lineHeight: 1.5,
+      letterSpacing: '0.15px',
       color: theme.palette.text.secondary
     },
     body1: {
@@ -45,6 +49,7 @@ const Typography = (theme: Theme) => {
       color: theme.palette.text.primary
     },
     body2: {
+      fontSize: '0.7rem',
       lineHeight: 1.5,
       letterSpacing: '0.15px',
       color: theme.palette.text.secondary

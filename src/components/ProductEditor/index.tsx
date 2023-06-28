@@ -11,7 +11,7 @@ const ProductEditor = ({ title }: any) => {
   return (
     <>
       <ProductDetails title={title} />
-      <Divider />
+      {/* <Divider />
       <ProductImages />
       <Divider />
       <ProductPrice />
@@ -20,7 +20,7 @@ const ProductEditor = ({ title }: any) => {
       <Divider />
       <ChooseLanguage />
       <Divider sx={{ marginTop: '20px' }} />
-      <Shipping />
+      <Shipping /> */}
     </>
   )
 }
