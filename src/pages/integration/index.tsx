@@ -4,7 +4,8 @@ import IntegrationCard from "src/@core/components/IntegrationCard";
 
 const Integration = () => {
   return (
-    <Box sx={{ margin: 'auto' }}>
+    <Box >
+      <h3 style={{ fontSize: '1.300rem', fontWeight: '500' }}>Integrations</h3>
       <Grid container spacing={10} >
         <Grid item xs={12} sm={8} md={3}>
           <IntegrationCard title="Google Shopping"

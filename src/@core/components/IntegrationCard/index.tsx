@@ -22,7 +22,6 @@ const IntegrationCard = (props: any) => {
   }
 
   return (
-
     <Card sx={{ borderRadius: '8px', height: '100%' }}>
       <CardMedia sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src={'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'} alt="Icon"
@@ -40,18 +39,7 @@ const IntegrationCard = (props: any) => {
         <Box sx={{ marginTop: '20px', display: 'flex' }}>
           <Box style={{ width: '100%' }}>
             {
-              connect ?
-                <Button
-                  variant='outlined'
-                  sx={{
-                    textTransform: 'none', padding: '5px',
-                    fontSize: '10px', borderRadius: '40px'
 
-                  }}
-                >
-                  Connected
-                </Button>
-                : ''
             }
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '330in', marginRight: '6px', margin: 'none' }}>
@@ -70,8 +58,11 @@ const IntegrationCard = (props: any) => {
 
                   sx={{
                     textTransform: 'none', padding: '5px',
-                    fontSize: '11px',
-                    color: 'primary'
+                    fontSize: '15px',
+                    color: 'white',
+                    width: '100%',
+                    backgroundColor: '#F62817'
+
 
                   }}
                   onClick={handleDisconnect}
