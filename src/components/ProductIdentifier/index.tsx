@@ -5,6 +5,8 @@ import {
   TextField,
   Button,
   Box,
+  Grid,
+  Card,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -47,25 +49,23 @@ const ProductIdentifier = () => {
   console.log(inputList)
 
   return (
-    <Box>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Box className='main_div' sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
-          <Box sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
-            <Typography
-              sx={{ fontWeight: '500', fontSize: '14px', color: 'black', whiteSpace: 'nowrap' }}>
+    <Box sx={{ width: '80%', margin: '0 auto' }}>
+      <Grid container rowSpacing={1} columnSpacing={6}>
+        <Grid item xs={12} lg={4}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <Typography variant="subtitle1">
               Product identifiers
             </Typography>
-            <Typography
-              sx={{ fontSize: '10px' }}>
+            <Typography variant="subtitle2">
               To make your products easier to find for
               customers, tell Klythe more about your product.
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '48px' }}>
-            <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '24px' }}>
-              <form style={{ width: '100%' }}>
-                <FormControl
-                  sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '550px' }}>
+          </Grid>
+          <Grid item xs={12} lg={8}>
+            <Card elevation={0} variant="outlined">
+              <form style={{padding:'40px'}}>
+                <FormControl >
                   <TextField id="outlined-basic"
                     label="ID or SKU"
                     variant="outlined"
@@ -131,10 +131,10 @@ const ProductIdentifier = () => {
                   </Box>
                 </FormControl>
               </form>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+            </Card>
+          </Grid>
+        </Grid>
+      
     </Box>
   )
 }
