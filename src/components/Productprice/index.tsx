@@ -7,7 +7,9 @@ import {
   Link,
   Box,
   Button,
-  Divider
+  Divider,
+   Grid,
+   Card
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
@@ -75,25 +77,23 @@ const ProductPrice = () => {
 
   return (
     <>
-      <Box>
-        <MainDiv sx={{ display: 'flex', flexWrap: 'wrap' }}>
-          <Box className='main_Box'
-            sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
-            <Box sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
-              <Typography
-                sx={{ fontWeight: '500', fontSize: '16px', color: 'black', whiteSpace: 'nowrap' }}>
+      <Box sx={{ width: '80%', margin: '0 auto' }}>
+        <Grid container rowSpacing={1} columnSpacing={6}>
+          <Grid item xs={12} lg={4}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <Typography variant="subtitle1">
                 Price, condition & availability
               </Typography>
-              <Typography
-                sx={{ fontSize: '10px' }}>
+              <Typography variant="subtitle2">
                 Set category, condition, price and availability here.
                 If you have multiple stores selling this product, you can set the availability
                 and price per location by choosing multiple stores here.
               </Typography>
             </Box>
-            <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '48px' }}>
-              <Box sx={{ display: 'flex', flexGrow: 3, flexBasis: '24px' }}>
-                <form style={{ width: '100%' }}>
+            </Grid>
+            <Grid item xs={12} lg={8}>
+              <Card elevation={0} variant="outlined">
+                <form style={{ width: '100%', padding: '2vw' }}>
                   <FormControl
                     sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '550px' }} >
                     <TextField id="outlined-basic"
@@ -229,10 +229,10 @@ const ProductPrice = () => {
                     </FormControl>
                   </Box>
                 </form>
-              </Box>
-            </Box>
-          </Box>
-        </MainDiv>
+              </Card>
+            </Grid>
+          </Grid>
+        
       </Box>
     </>
   )

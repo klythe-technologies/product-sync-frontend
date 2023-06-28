@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 
 const FooterContent = () => {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center',textAlign:'center', justifyContent:'center'}}>
       <Typography sx={{ mr: 2 }}>
         {`© ${new Date().getFullYear()}, Made with `}
         <Box component='span' sx={{ color: 'error.main' }}>
