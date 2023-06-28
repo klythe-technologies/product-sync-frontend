@@ -95,10 +95,13 @@ const ProductPrice = () => {
               <Card elevation={0} variant="outlined">
                 <form style={{ width: '100%', padding: '2vw' }}>
                   <FormControl
-                    sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '550px' }} >
+                    sx={{ fontVariant: 'full-width', display: 'flex', flexWrap: 'nowrap', maxWidth: '100%' }} >
                     <TextField id="outlined-basic"
                       label="Product type"
                       variant="outlined"
+                      size='small'
+                      margin='dense'
+                      InputLabelProps={{ style: { fontSize: 12 } }}
                       inputProps={{
                         maxlength: PRODUCT_TYPE_LIMIT
                       }}
@@ -117,16 +120,19 @@ const ProductPrice = () => {
                     </BottomDiv>
                     {inputList.length > 0
                       ? inputList.map((input, index) => (
-                        <Box key={index}>
+                        <Box key={index} sx={{display:'flex',flexDirection:'row'}}>
                           <FormControl
                             sx={{
-                              fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '550px',
-                              marginBottom: '25px', marginTop: '15px'
+                              fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '100%',                             
                             }}>
                             <TextField id="outlined-basic"
                               label="Product type"
+                              InputLabelProps={{ style: { fontSize: 12 } }}
                               variant="outlined"
+                              size='small'
+                              margin='dense'
                               value={productType}
+                              sx={{width:'40.5rem', maxWidth:'100%'}}
                               inputProps={{
                                 maxlength: PRODUCT_TYPE_LIMIT
                               }}
@@ -155,12 +161,15 @@ const ProductPrice = () => {
                     </Box>
                   </FormControl>
                   <FormControl
-                    sx={{ fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '550px', display: 'flex' }}>
+                    sx={{ fontVariant: 'full-width', flexWrap: 'nowrap', maxWidth: '100%', display: 'flex' }}>
                     <TextField
                       select
                       type="select"
-                      margin="normal"
+                      margin="dense"
                       label="Condition"
+                      size="small"
+                      InputLabelProps={{ style: { fontSize: 12 } }}
+                      
                       defaultValue="New">
                       {productCondition.map((option: any) => (
                         <MenuItem key={option.value} value={option.value}>
@@ -169,15 +178,19 @@ const ProductPrice = () => {
                       ))}
                     </TextField>
                   </FormControl>
-                  <TextFieldDiv sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                  <TextFieldDiv sx={{ display: 'flex', flexWrap: 'wrap'}}>
                     <FormControl>
                       <TextField
                         label="Price"
                         required
                         variant="outlined"
+                        size='small'
+                        margin='dense'
+                        sx={{width:'50.3rem',maxWidth:'100%'}}
+                        InputLabelProps={{ style: { fontSize: 12 } }}
                       />
                       <CurrencyRupeeIcon
-                        sx={{ width: '15px', position: 'absolute' }}
+                        sx={{ width: '15px',position:'absolute', marginTop:'13px', paddingLeft:'2px', paddingRight:'2px' }}
                       />
                     </FormControl>
                     <FormControl>
@@ -185,6 +198,10 @@ const ProductPrice = () => {
                         select
                         label="Currency"
                         defaultValue="INR"
+                        size='small'
+                        margin='dense'
+                        sx={{width:'20.2rem', maxWidth:'100%', minWidth:'100%'}}
+                        InputLabelProps={{ style: { fontSize: 12 } }}
                       >
                         {
                           CurrencyName.map((option: any) => (
@@ -200,7 +217,12 @@ const ProductPrice = () => {
                         select
                         required
                         label="Availability"
-                        defaultValue="In stock">
+                        defaultValue="In stock"
+                        size='small'
+                        margin='dense'
+                        sx={{width:'20.2rem', maxWidth:'100%',minWidth:'100%'}}
+                        InputLabelProps={{ style: { fontSize: 12 } }}
+                        >
                         {
                           Availability.map((option: any) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -212,20 +234,28 @@ const ProductPrice = () => {
                     </FormControl>
                   </TextFieldDiv>
                   <Box
-                    sx={{ marginTop: '10px', display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+                    sx={{ marginTop: '10px', display: 'flex', gap: '10px', flexWrap: 'wrap',flexDirection:'row' }}>
                     <FormControl sx={{ maxWidth: '340px' }}>
                       <TextField
                         label="Sale Price"
-                        sx={{ fontSize: '10px' }}
+                        size='small'
+                        margin='dense'
+                        sx={{ fontSize: '10px', width:'20.2rem',maxWidth:'100%', minWidth:'100%'}}
                         value={salePrice}
                         onChange={e => setSalePrice(e.target.value)}
+                        InputLabelProps={{ style: { fontSize: 12 } }}
                       />
                       <CurrencyRupeeIcon
-                        sx={{ width: '15px', position: 'absolute' }}
+                        sx={{ width: '15px', position: 'absolute', marginTop:'13px', paddingLeft:'2px', paddingRight:'2px'  }}
                       />
                     </FormControl>
-                    <FormControl sx={{ maxWidth: '350px' }}>
-                      <TextField label="Select date range" />
+                    <FormControl sx={{ maxWidth: '350px'}}>
+                      <TextField label="Select date range"
+                      size='small'
+                      margin='dense'
+                      InputLabelProps={{ style: { fontSize: 12 } }}
+                      sx={{width:'20.2rem', maxWidth:'100%', minWidth:'100%'}}
+                      />
                     </FormControl>
                   </Box>
                 </form>
