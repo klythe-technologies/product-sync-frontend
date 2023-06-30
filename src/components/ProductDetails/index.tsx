@@ -53,7 +53,7 @@ const ProductDetails = () => {
           </Box>
         </Grid>
         <Grid item xs={12} lg={8}>
-          <Card elevation={0} variant="outlined">
+          <Card elevation={0} variant= "outlined">
             <Container
               sx={{
                 padding: '20px'

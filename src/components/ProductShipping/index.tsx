@@ -4,11 +4,15 @@ import {
   Typography,
   FormControl,
   TextField,
-  MenuItem
+  MenuItem,
+  Grid,
+  Card,
+  Container
 } from '@mui/material';
 import { WeightUnit } from '../../constants/shipping-weight-unit';
 import { LengthUnit } from '../../constants/shipping-length-unit';
 import { styled } from '@mui/material/styles';
+import { Grid3x3 } from '@mui/icons-material';
 
 const FormControlDiv = styled('div')(() => ({
   display: 'flex',
@@ -31,29 +35,37 @@ const HandlingTimeDiv = styled('div')(() => ({
 
 const ProductShipping = () => {
   return (
-    <Box>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Box className='main_div' sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
-          <Box sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
-            <Typography sx={{ fontWeight: '500', fontSize: '16px', color: 'black', whiteSpace: 'nowrap' }}>
+    <Box sx={{ width: '80%', margin: '0 auto' }}>
+      <Grid container rowSpacing={1} columnSpacing={6}>
+        <Grid item xs={12} lg={4}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <Typography variant="subtitle1">
               Shipping, tax & returns
             </Typography>
-            <Typography
-              sx={{ fontSize: '12px' }}>
+            <Typography variant="subtitle2">
               Once you've set up a shipping service, use
               advanced settings to define its shipping
               cost in more detail.
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', flexGrow: 2, flexBasis: '48px' }}>
-            <Box sx={{ display: 'flex', flexGrow: 2, flexBasis: '24px' }}>
-              <form style={{ width: '100%' }}>
+          </Grid>
+          <Grid item xs={12} lg={8}>
+            <Card elevation={0} variant= "outlined">
+               <Container
+              sx={{
+                padding: '20px'
+              }}
+            >
                 <Box>
-                  <FormControlDiv>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Shipping weight" />
+                  <Grid3x3>
+                    <FormControl >
+                      <TextField 
+                      label="Shipping weight" 
+                      sx={{width:'45vw'}}
+                      
+                      />
                     </FormControl>
-                    <FormControl sx={{ width: '250px' }}>
+                    <FormControl >
                       <TextField
                         select
                         label="Shipping weight unit"
@@ -67,7 +79,7 @@ const ProductShipping = () => {
                         }
                       </TextField>
                     </FormControl>
-                  </FormControlDiv>
+                  </Grid3x3>
                   <FormControlDiv>
                     <FormControl sx={{ width: '250px' }}>
                       <TextField label="Shipping length" />
@@ -136,11 +148,10 @@ const ProductShipping = () => {
                     </FormControl>
                   </HandlingTimeDiv>
                 </Box>
-              </form>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+              </Container>
+            </Card>
+          </Grid>
+        </Grid>
     </Box>
   )
 }
