@@ -5,7 +5,9 @@ import {
   Button,
   Box,
   Divider,
-  Link
+  Link,
+  Grid,
+  Card
 } from '@mui/material';
 
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
@@ -23,32 +25,32 @@ const ProductImages = () => {
   };
 
   return (
-    <Box>
-      <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        <Box className='main_Box' sx={{ display: 'flex', gap: '25px', marginTop: '20px', flexWrap: 'wrap' }}>
-          <Box className='product_details_title' sx={{ flexGrow: 1, flexBasis: 0, margin: '0 24px 24px 0' }}>
-            <Typography
-              sx={{ fontWeight: '500', fontSize: '16px', color: 'black', whiteSpace: 'nowrap' }}>
+    <Box sx={{ width: '80%', margin: '0 auto' }}>
+      <Grid container rowSpacing={1} columnSpacing={6}>
+        <Grid item xs={12} lg={4}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <Typography variant="subtitle1">
               Product images
             </Typography>
-            <Typography
-              sx={{ fontSize: '10px' }}>
+            <Typography variant="subtitle2">
               Additional images are often critical for
               users to understand what the product
               looks like from different angles and in
               different contexts.
             </Typography>
           </Box>
+          </Grid>
+          <Grid item xs={12} lg={8}>
+         <Card elevation={0} variant= "outlined" sx={{padding:'20px', float:'right', width:'100%'}}>
           <Box sx={{ display: 'flex', flexGrow: 2, flexBasis: '48px' }}>
             <Box sx={{ display: 'flex' }}>
               <Paper
                 variant="outlined"
                 sx={{
-                  minWidth: 100,
-                  // width: 350,
-                  maxWidth: 350,
+                 maxWidth:'100%',
+                 minHeight:'105%',
                   height: 350,
-                  backgroundColor: 'rgba(50, 50, 50, 0)'
+                  backgroundColor: 'rgba(50, 50, 50, 0)',
                 }}>
                 <Box>
                   <Box sx={{ textAlign: 'center', paddingTop: '70px' }}>
@@ -85,8 +87,8 @@ const ProductImages = () => {
               <Paper
                 variant="outlined"
                 sx={{
-                  width: 128,
-                  height: 110,
+                  width: "100px",
+                  height: '100px',
                   marginBottom: '10px',
                   display: 'flex',
                   backgroundColor: 'rgba(50, 50, 50, 0)'
@@ -98,8 +100,8 @@ const ProductImages = () => {
               <Paper
                 variant="outlined"
                 sx={{
-                  width: 128,
-                  height: 110,
+                  width: '100px',
+                  height: '100px',
                   marginBottom: '10px',
                   display: 'flex',
                   backgroundColor: 'rgba(50, 50, 50, 0)'
@@ -109,8 +111,9 @@ const ProductImages = () => {
                 </Box>
               </Paper>
               <Paper variant="outlined" sx={{
-                width: 128,
-                height: 110,
+                width: "100px",
+                height: '100px',
+                maxWidth:'100%',
                 marginBottom: '10px',
                 display: 'flex',
                 backgroundColor: 'rgba(50, 50, 50, 0)'
@@ -120,9 +123,11 @@ const ProductImages = () => {
                 </Box>
               </Paper>
             </Box>
+            
           </Box>
-        </Box>
-      </Box>
+          </Card>
+        </Grid>
+        </Grid>
     </Box>
   )
 }

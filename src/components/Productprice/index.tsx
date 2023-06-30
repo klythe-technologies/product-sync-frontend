@@ -145,7 +145,7 @@ const ProductPrice = () => {
                           </FormControl>
                           <DeleteIcon
                             onClick={() => handleRemoveInput(index)}
-                            sx={{ marginTop: '25px', marginLeft: '5px' }}
+                            sx={{ marginTop: '15px', marginLeft: '5px' }}
                           />
                         </Box>
                       ))

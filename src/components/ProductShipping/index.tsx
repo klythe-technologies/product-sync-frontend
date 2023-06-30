@@ -48,110 +48,142 @@ const ProductShipping = () => {
               cost in more detail.
             </Typography>
           </Box>
-          </Grid>
-          <Grid item xs={12} lg={8}>
-            <Card elevation={0} variant= "outlined">
-               <Container
+        </Grid>
+        <Grid item xs={12} lg={8}>
+          <Card elevation={0} variant="outlined">
+            <Container
               sx={{
                 padding: '20px'
               }}
             >
-                <Box>
-                  <Grid3x3>
-                    <FormControl >
-                      <TextField 
-                      label="Shipping weight" 
-                      sx={{width:'45vw'}}
-                      
-                      />
-                    </FormControl>
-                    <FormControl >
-                      <TextField
-                        select
-                        label="Shipping weight unit"
-                      >
-                        {
-                          WeightUnit.map((option: any) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))
-                        }
-                      </TextField>
-                    </FormControl>
-                  </Grid3x3>
-                  <FormControlDiv>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Shipping length" />
-                    </FormControl>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField
-                        select
-                        label="Shipping length unit"
-                      >
-                        {
-                          LengthUnit.map((option: any) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))
-                        }
-                      </TextField>
-                    </FormControl>
-                  </FormControlDiv>
-                  <FormControlDiv>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Shipping width" />
-                    </FormControl>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField
-                        select
-                        label="Shipping width unit"
-                      >
-                        {
-                          LengthUnit.map((option: any) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))
-                        }
-                      </TextField>
-                    </FormControl>
-                  </FormControlDiv>
-                  <FormControlDiv>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Shipping height" />
-                    </FormControl>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField
-                        select
-                        label="Shipping height unit"
-                      >
-                        {
-                          LengthUnit.map((option: any) => (
-                            <MenuItem key={option.value} value={option.value}>
-                              {option.label}
-                            </MenuItem>
-                          ))
-                        }
-                      </TextField>
-                    </FormControl>
-                  </FormControlDiv>
-                </Box>
-                <Box>
-                  <HandlingTimeDiv>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Minimum handling time" />
-                    </FormControl>
-                    <FormControl sx={{ width: '250px' }}>
-                      <TextField label="Maximum handling time" />
-                    </FormControl>
-                  </HandlingTimeDiv>
-                </Box>
-              </Container>
-            </Card>
-          </Grid>
+
+              <FormControlDiv>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField
+                    label="Shipping weight"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  />
+                </FormControl>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField
+                    select
+                    label="Shipping weight unit"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  >
+                    {
+                      WeightUnit.map((option: any) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))
+                    }
+                  </TextField>
+                </FormControl>
+              </FormControlDiv>
+              <FormControlDiv>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField label="Shipping length"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  />
+                </FormControl>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField
+                    select
+                    label="Shipping length unit"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  >
+                    {
+                      LengthUnit.map((option: any) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))
+                    }
+                  </TextField>
+                </FormControl>
+              </FormControlDiv>
+              <FormControlDiv>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField label="Shipping width"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  />
+                </FormControl>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField
+                    select
+                    label="Shipping width unit"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  >
+                    {
+                      LengthUnit.map((option: any) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))
+                    }
+                  </TextField>
+                </FormControl>
+              </FormControlDiv>
+              <FormControlDiv>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField label="Shipping height"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }} />
+                </FormControl>
+                <FormControl sx={{ width: '350px' }}>
+                  <TextField
+                    select
+                    label="Shipping height unit"
+                    size="small"
+                    margin="dense"
+                    InputLabelProps={{ style: { fontSize: 12 } }}
+                  >
+                    {
+                      LengthUnit.map((option: any) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))
+                    }
+                  </TextField>
+                </FormControl>
+              </FormControlDiv>
+
+              <Box>
+                <HandlingTimeDiv>
+                  <FormControl sx={{ width: '350px' }}>
+                    <TextField label="Minimum handling time"
+                      size="small"
+                      margin="dense"
+                      InputLabelProps={{ style: { fontSize: 12 } }}
+                    />
+                  </FormControl>
+                  <FormControl sx={{ width: '350px' }}>
+                    <TextField label="Maximum handling time"
+                      size="small"
+                      margin="dense"
+                      InputLabelProps={{ style: { fontSize: 12 } }}
+                    />
+                  </FormControl>
+                </HandlingTimeDiv>
+              </Box>
+            </Container>
+          </Card>
         </Grid>
+      </Grid>
     </Box>
   )
 }

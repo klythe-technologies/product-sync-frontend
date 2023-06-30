@@ -29,8 +29,8 @@ const ChooseLanguage = () => {
           </Box>
         </Grid>
       </Grid>
-      <Box  sx={{ width:'100%', display:'flex', justifyContent:'right'}}>
-        <Card elevation={0} variant="outlined" sx={{marginTop:'-50px'}} >
+      <Box sx={{ width: '100%', display: 'flex', justifyContent: 'right' }}>
+        <Card elevation={0} variant="outlined" sx={{ marginTop: '-50px' }} >
           <Container
             sx={{
               padding: '20px'
@@ -38,12 +38,12 @@ const ChooseLanguage = () => {
           >
             <TextField
               select type="select"
-              InputLabelProps={{ style: { fontSize: 12 } }}
-              label="Language"
+              
+              label='Language'
               size="small"
               margin="dense"
-              sx={{width:'44rem', padding:'20px', maxWidth:'100%', minWidth:'100%'}}
-             
+              sx={{ width: '705px',  maxWidth: '100%', minWidth: '100%' }}
+              InputLabelProps={{ style: { fontSize: 12 } }}
               defaultValue="English">
               {Language.map((option: any) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -53,7 +53,7 @@ const ChooseLanguage = () => {
             </TextField>
             <Box className='bottom_section' style={{ display: 'flex', gap: '43%', fontSize: '12px' }}>
               <Typography
-                sx={{ fontSize: '12px' }}>
+                sx={{ fontSize: '12px', marginLeft: '25px' }}>
                 Your product will show in this language
               </Typography>
             </Box>
