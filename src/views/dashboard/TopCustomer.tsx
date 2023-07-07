@@ -79,7 +79,7 @@ const TopCustomers = () => {
                 sx={{ display: 'flex', alignItems: 'center', mb: index !== depositData.length - 1 ? 6 : 0 }}
               >
                 <Box sx={{ minWidth: 40, display: 'flex', justifyContent: 'center' }}>
-                  <img src={item.logo} alt={item.name} width={item.logoWidth} height={item.logoHeight} style={{borderRadius: 50}} />
+                  {/* <img src={item.logo} alt={item.name} width={item.logoWidth} height={item.logoHeight} style={{borderRadius: 50}} /> */}
                 </Box>
                 <Box
                   sx={{

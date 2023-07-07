@@ -12,13 +12,13 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
   productLink: yup
-    .string('Enter a value')
+    .string()
     .required('Link is required'),
   title: yup
-    .string('Enter a value')
+    .string()
     .required('Title is required'),
   description: yup
-    .string('Enter a value')
+    .string()
     .required('Description is required'),
 });
 

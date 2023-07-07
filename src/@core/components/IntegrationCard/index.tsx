@@ -24,7 +24,7 @@ const IntegrationCard = (props: any) => {
   return (
     <Card sx={{ borderRadius: '8px', height: '100%' }}>
       <CardMedia sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src={'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'} alt="Icon"
+        {/* <img src={'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'} alt="Icon" */}
           style={{ height: '40%', width: '50%', margin: '2vw' }} />
       </CardMedia>
       <CardContent>
